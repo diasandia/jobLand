@@ -1,0 +1,2 @@
+class PointCategory < ApplicationRecord
+end

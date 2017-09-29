@@ -1,0 +1,2 @@
+class NetworkingEvent < ApplicationRecord
+end

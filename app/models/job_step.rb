@@ -1,0 +1,2 @@
+class JobStep < ApplicationRecord
+end
