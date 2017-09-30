@@ -10,31 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930163855) do
+ActiveRecord::Schema.define(version: 20170930212846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "CalendarEvents", force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
+    t.string "attendable_type", null: false
+    t.bigint "attendable_id", null: false
+    t.datetime "datetime"
     t.string "title"
     t.string "description"
     t.string "location"
-    t.bigint "user_id"
-    t.string "attendable_type", null: false
-    t.bigint "attendable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["attendable_type", "attendable_id"], name: "index_CalendarEvents_on_attendable_type_and_attendable_id"
-    t.index ["user_id"], name: "index_CalendarEvents_on_user_id"
+    t.index ["attendable_type", "attendable_id"], name: "index_events_on_attendable_type_and_attendable_id"
   end
 
-  create_table "job_steps", force: :cascade do |t|
-    t.bigint "step_id"
+  create_table "job_phases", force: :cascade do |t|
+    t.bigint "user_jobs_id"
+    t.bigint "phase_id"
     t.boolean "complete"
-    t.integer "users_jobs_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["step_id"], name: "index_job_steps_on_step_id"
+    t.index ["phase_id"], name: "index_job_phases_on_phase_id"
+    t.index ["user_jobs_id"], name: "index_job_phases_on_user_jobs_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -54,32 +54,42 @@ ActiveRecord::Schema.define(version: 20170930163855) do
 
   create_table "notes", force: :cascade do |t|
     t.string "description"
-    t.bigint "user_id"
     t.string "notable_type", null: false
     t.bigint "notable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["notable_type", "notable_id"], name: "index_notes_on_notable_type_and_notable_id"
-    t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
+  create_table "phases", force: :cascade do |t|
+    t.string "phase_name"
+    t.string "next_steps"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "point_categories", force: :cascade do |t|
-    t.string "source"
+    t.string "category"
     t.integer "number_of_points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "steps", force: :cascade do |t|
-    t.string "step_text"
-    t.string "phase_name"
+  create_table "user_events", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "networking_events_id"
+    t.string "attendable_type", null: false
+    t.bigint "attendable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["attendable_type", "attendable_id"], name: "index_user_events_on_attendable_type_and_attendable_id"
+    t.index ["networking_events_id"], name: "index_user_events_on_networking_events_id"
+    t.index ["user_id"], name: "index_user_events_on_user_id"
   end
 
   create_table "user_jobs", force: :cascade do |t|
-    t.bigint "job_id"
     t.bigint "user_id"
+    t.bigint "job_id"
     t.integer "criteria_one_score"
     t.integer "criteria_two_score"
     t.integer "criteria_three_score"

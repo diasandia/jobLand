@@ -1,6 +1,5 @@
  class NetworkingEvent < ApplicationRecord
 
-  has_many :calendar_events, as: :attendable
-  belongs_to :user
+  has_many :users, through: :user_events
 
 end
