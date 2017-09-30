@@ -27,5 +27,8 @@ module JobApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Bundle.require(*Rails.groups)
+    Dotenv::Railtie.load
   end
 end
