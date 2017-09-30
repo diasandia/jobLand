@@ -10,6 +10,7 @@
 User.delete_all
 Job.delete_all
 UserJob.delete_all
+Phase.delete_all
 
 
 
@@ -79,7 +80,25 @@ UserJob.create!(
   criteria_three_score: 5
   )
 
-JobPhase.create!(
-  user_jobs_id =
+Phase.create!(
+  phase_name: "Informational Interview",
+  next_steps: "Research the person on LinkedIn. Make a list of questions to ask."
   )
+
+Phase.create!(
+  phase_name: "Phone Screen",
+  next_steps: "Research the person on LinkedIn. Come up with your elevator pitch."
+  )
+
+Phase.create!(
+  phase_name: "Technical screen",
+  next_steps: "Read that book about algorithms."
+  )
+
+Phase.create!(
+  phase_name: "Onsite Interview",
+  next_steps: "Research the person on LinkedIn. Come up with your elevator pitch. Practice algorithms."
+  )
+
+
 
