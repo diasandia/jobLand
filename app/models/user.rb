@@ -9,5 +9,6 @@ class User < ApplicationRecord
   has_many :calendar_events
   has_many :user_points
   has_many :point_categories
+  has_many :notes
 
 end

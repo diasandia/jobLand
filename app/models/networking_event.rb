@@ -1,6 +1,6 @@
 class NetworkingEvent < ApplicationRecord
 
-  belongs_to :attendable, polymorphic: :true
+  has_many :calendar_events, as: :attendable
   belongs_to :user
 
 end
