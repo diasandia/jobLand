@@ -10,7 +10,7 @@
 User.delete_all
 Job.delete_all
 UserJob.delete_all
-Step.delete_all
+
 
 
 User.create!(
@@ -79,23 +79,7 @@ UserJob.create!(
   criteria_three_score: 5
   )
 
-Step.create!(
-  step_text: "send a follow-up email",
-  phase_name: "phone screen"
-  )
-
-Step.create!(
-  step_text: "research the company to prepare for the phone interview",
-  phase_name: "phone screen"
-  )
-
-Step.create!(
-  step_text: "send an additional resource that references what you discussed in your interview",
-  phase_name: "onsite interview"
-  )
-
-Step.create!(
-  step_text: "algorithm practice",
-  phase_name: "onsite interview"
+JobPhase.create!(
+  user_jobs_id =
   )
 
