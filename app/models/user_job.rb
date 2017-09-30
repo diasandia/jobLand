@@ -7,9 +7,6 @@ class UserJob < ApplicationRecord
 
   def jobs_by_phase
     @user_job = User_job.all
-
-
-
   end
 
 end

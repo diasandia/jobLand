@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 20170930212846) do
   end
 
   create_table "job_phases", force: :cascade do |t|
-    t.bigint "user_jobs_id"
+    t.bigint "user_job_id"
     t.bigint "phase_id"
-    t.boolean "complete"
+    t.boolean "complete", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["phase_id"], name: "index_job_phases_on_phase_id"
-    t.index ["user_jobs_id"], name: "index_job_phases_on_user_jobs_id"
+    t.index ["user_job_id"], name: "index_job_phases_on_user_job_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -101,10 +101,10 @@ ActiveRecord::Schema.define(version: 20170930212846) do
 
   create_table "user_points", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "point_categories_id"
+    t.bigint "point_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["point_categories_id"], name: "index_user_points_on_point_categories_id"
+    t.index ["point_category_id"], name: "index_user_points_on_point_category_id"
     t.index ["user_id"], name: "index_user_points_on_user_id"
   end
 

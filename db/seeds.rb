@@ -11,6 +11,7 @@ User.delete_all
 Job.delete_all
 UserJob.delete_all
 Phase.delete_all
+JobPhase.delete_all
 
 
 
@@ -48,33 +49,33 @@ Job.create!(
   description: "Oculus role, lots of emphasison team-work"
   )
 
-UserJob.create!(
-  user_id: 1,
-  job_id: 1,
+userjob1 = UserJob.create!(
+  user: User.first,
+  job: Job.first,
   criteria_one_score: 5,
   criteria_two_score: 3,
   criteria_three_score: 4
   )
 
-UserJob.create!(
-  user_id: 1,
-  job_id: 2,
+userjob2 = UserJob.create!(
+  user: User.second,
+  job: Job.second,
   criteria_one_score: 1,
   criteria_two_score: 1,
   criteria_three_score: 1
   )
 
-UserJob.create!(
-  user_id: 2,
-  job_id: 1,
+userjob3 = UserJob.create!(
+  user: User.second,
+  job: Job.first,
   criteria_one_score: 1,
   criteria_two_score: 2,
   criteria_three_score: 3
   )
 
-UserJob.create!(
-  user_id: 2,
-  job_id: 2,
+userjob4 = UserJob.create!(
+  user: User.second,
+  job: Job.second,
   criteria_one_score: 5,
   criteria_two_score: 5,
   criteria_three_score: 5
@@ -98,6 +99,21 @@ Phase.create!(
 Phase.create!(
   phase_name: "Onsite Interview",
   next_steps: "Research the person on LinkedIn. Come up with your elevator pitch. Practice algorithms."
+  )
+
+JobPhase.create!(
+  user_job: UserJob.first,
+  phase: Phase.first
+  )
+
+JobPhase.create!(
+  user_job: UserJob.second,
+  phase: Phase.third
+  )
+
+JobPhase.create!(
+  user_job: UserJob.third,
+  phase: Phase.first
   )
 
 
