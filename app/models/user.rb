@@ -6,9 +6,10 @@ devise :database_authenticatable, :registerable,
 
   has_many :user_jobs
   has_many :jobs, through: :user_jobs
+  has_many :jobs_steps, through: :user_jobs
   has_many :calendar_events
   has_many :user_points
-  has_many :point_categories
+  has_many :point_categories, through: :user_points
   has_many :notes
 
 
