@@ -13,25 +13,17 @@ devise :database_authenticatable, :registerable,
 
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
-      p "$" * 100
-      p "IN FIND FOR google_oauth2 IN THE USER MODEL"
-     data = access_token.info
-     user = User.where(:provider => access_token.provider, :uid => access_token.uid ).first
-     if user
-       return user
-    else
-       registered_user = User.where(:email => access_token.info.email).first
-       if registered_user
-         return registered_user
-       else
-         user = User.create(name: data["name"],
-           provider:access_token.provider,
-           email: data["email"],
-           uid: access_token.uid ,
-           password: Devise.friendly_token[0,20],
-         )
+    data = access_token.info
+      user = User.find_by(email: data.email)
+      if user
+        user.provider = access_token.provider
+        user.uid = access_token.uid
+        user.token = access_token.credentials.token
+        user.save
+        user
+      else
+        redirect_to new_user_registration_path, notice: "Error."
       end
-    end
   end
 
 end
