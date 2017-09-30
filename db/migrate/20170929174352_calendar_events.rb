@@ -1,11 +1,11 @@
 class CalendarEvents < ActiveRecord::Migration[5.1]
   def change
   	create_table CalendarEvents do |t|
-  		t.string :title 
-  		t.string :description 
-  		t.string :location 
-  		t.references :attendable, polymorphic: true
+  		t.string :title
+  		t.string :description
+  		t.string :location
   		t.references :user
+      t.references :attendable, polymorphic: true, null: false
 
   		t.timestamps
   	end
