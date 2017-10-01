@@ -5,10 +5,11 @@ class UserJobsController < ApplicationController
   end
 
   def index
-    @user = User.find(params[:id])
-    @user_jobs = UserJob.all
+    # @user_jobs = current_user.user_jobs
   end
 
   def show
+    # @user_jobs = current_user.user_jobs
+    @user = 
   end
 end
