@@ -1,5 +1,42 @@
-<h1>UserJobs#show</h1>
+<h1> This job belongs to <%= @user_job.user.first_name %></h1>
 
-<h2> These jobs are for <%= @user.first_name %></h2>
-<p>Find me in app/views/user_jobs/show.html.erb</p>
+<div class="job-phase">
+  <p>Job status</p>
+  <p><%= @user_job.job_id %>
+</div>
+
+<div class="user-job-info">
+  <div class="user-job-section-header">
+    <h2> <%= @user_job.job.job_title %></h2>
+  </div>
+  <p><%= @user_job.job.url %></p>
+  <p> <%= @user_job.job.company %></p>
+  <p><%= @user_job.job.description %></p>
+</div>
+
+<div class="scorecard">
+  <h3>Here's how this job currently stacks up against your scorecard:</h3>
+  <div class="criteria">
+    <p>Criteria 1: <%= @user_job.user.criteria_one%></p>
+    <p>Current score: <%= @user_job.criteria_one_score %>
+  </div>
+  <div class="criteria">
+    <p>Criteria 2: <%= @user_job.user.criteria_two%></p>
+    <p>Current score: <%= @user_job.criteria_two_score %>
+  </div>
+  <div class="criteria">
+    <p>Criteria 3: <%= @user_job.user.criteria_three%></p>
+    <p>Current score: <%= @user_job.criteria_three_score %>
+  </div>
+</div>
+
+<div class="add-user-job-notes">
+
+  <%= form_tag( method: "post") do %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Add a note!") %>
+  <% end %>
+</div>
+
+
 
