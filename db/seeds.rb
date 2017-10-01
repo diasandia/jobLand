@@ -10,8 +10,8 @@
 User.delete_all
 Job.delete_all
 UserJob.delete_all
-Phase.delete_all
 JobPhase.delete_all
+Phase.delete_all
 
 
 

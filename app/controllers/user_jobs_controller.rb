@@ -9,7 +9,7 @@ class UserJobsController < ApplicationController
   end
 
   def show
-    # @user_jobs = current_user.user_jobs
-    @user = 
+      # @user = User.first
+    @user_job = UserJob.first
   end
 end
