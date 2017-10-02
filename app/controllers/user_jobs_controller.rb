@@ -9,6 +9,7 @@ class UserJobsController < ApplicationController
   end
 
   def show
+    # @user_jobs = current_user.user_jobs
     #change this once login works
     @user_job = UserJob.first
     @note = Note.new

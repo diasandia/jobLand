@@ -1,0 +1,7 @@
+<%= form_with url: user_registration_path, method: 'put', local: true do |f| %>
+  <%= f.text_field :criteria_one %>
+  <%= f.text_field :criteria_two %>
+  <%= f.text_field :criteria_three %>
+  <%= f.submit "Save Criteria" %>
+<% end %>
+
