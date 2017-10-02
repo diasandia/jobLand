@@ -7,11 +7,11 @@ Rails.application.routes.draw do
 
   resources :jobs
   resources :phases
-  resources :networking_events 
+  resources :networking_events
 
 
-  resources :users, only: [:new, :create, :show] do
-    resources :user_points 
+  resources :users do
+    resources :user_points
     resources :user_jobs
     resources :user_networking_events
   end
@@ -23,14 +23,14 @@ Rails.application.routes.draw do
     resources :events
   end
 
-  resources :job_phases do 
+  resources :job_phases do
     resources :phases
     resources :notes
-    resources :events 
+    resources :events
   end
 
-  resources :user_networking_events do 
-    resources :notes 
+  resources :user_networking_events do
+    resources :notes
     resources :events
   end
 

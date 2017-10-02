@@ -10,6 +10,6 @@ class UserJobsController < ApplicationController
 
   def show
     # @user_jobs = current_user.user_jobs
-    @user = 
+    # @user =
   end
 end
