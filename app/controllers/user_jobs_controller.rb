@@ -5,7 +5,9 @@ class UserJobsController < ApplicationController
   end
 
   def index
-    # @user_jobs = current_user.user_jobs
+    #change this to be current user once I'm logged in
+    @current_user = User.first
+    @user_jobs = current_user.user_jobs.all
   end
 
   def show
