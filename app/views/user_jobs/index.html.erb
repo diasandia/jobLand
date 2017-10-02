@@ -1,5 +1,17 @@
-<h1> hello!</h1>
+
+<h2>Welcome, <%= @user.first_name %>! </h2>
+ <% @user_phase.each do |phase| %>
+  <h3> <%= phase.phase_name %> </h3>
 
 <ul>
+<% @user_jobs.select {|user_job| user_job.job_phases.include?(phase)}.each do |job|  %>
 
+<li><%= link_to @job.job_title, root_path %></li>
+    <%= @job.company %>
+
+  <% end %>
 </ul>
+ <p> Remember: next steps </p>
+<% end %>
+
+

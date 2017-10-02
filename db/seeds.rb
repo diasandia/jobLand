@@ -57,6 +57,7 @@ userjob1 = UserJob.create!(
   criteria_three_score: 4
   )
 
+
 userjob2 = UserJob.create!(
   user: User.second,
   job: Job.second,
@@ -79,6 +80,15 @@ userjob4 = UserJob.create!(
   criteria_one_score: 5,
   criteria_two_score: 5,
   criteria_three_score: 5
+  )
+
+#diana is the user, the job is Facebook
+userjob12 = UserJob.create!(
+  user: User.first,
+  job: Job.second,
+  criteria_one_score: 5,
+  criteria_two_score: 3,
+  criteria_three_score: 4
   )
 
 Phase.create!(
@@ -106,6 +116,7 @@ JobPhase.create!(
   phase: Phase.first
   )
 
+
 JobPhase.create!(
   user_job: UserJob.second,
   phase: Phase.third
@@ -116,5 +127,10 @@ JobPhase.create!(
   phase: Phase.first
   )
 
+#Diana should have the facebook job in the technical screen phase
+JobPhase.create!(
+  user_job: UserJob.fifth,
+  phase: Phase.third
+  )
 
 

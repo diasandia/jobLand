@@ -5,11 +5,17 @@ class UserJobsController < ApplicationController
   end
 
   def index
-    # @user_jobs = current_user.user_jobs
+    @user = current_user
+    if @user
+      @user_jobs = @user.user_jobs.all
+    @jobs = @user.jobs.all
+    @user_phase = @user.phases
+    else
+    redirect_to new_user_session_path
+    end
   end
 
   def show
-    @user = User.first
-    @user.user_jobs
+
   end
 end

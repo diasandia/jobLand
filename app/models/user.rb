@@ -6,7 +6,8 @@ devise :database_authenticatable, :registerable,
 
   has_many :user_jobs
   has_many :jobs, through: :user_jobs
-  has_many :jobs_phases, through: :user_jobs
+  has_many :job_phases, through: :user_jobs
+  has_many :phases, through: :job_phases
   has_many :events
   has_many :user_events
   has_many :networking_events, through: :user_events
