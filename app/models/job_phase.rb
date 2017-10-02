@@ -6,4 +6,6 @@ class JobPhase < ApplicationRecord
   has_many :notes, as: :notable
   has_many :events, as: :attendable
 
+
+
 end
