@@ -9,7 +9,7 @@ class UserJobsController < ApplicationController
   end
 
   def show
-      # @user = User.first
+    #change this once login works
     @user_job = UserJob.first
   end
 end
