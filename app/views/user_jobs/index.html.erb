@@ -4,14 +4,14 @@
   <h3> <%= phase.phase_name %> </h3>
 
 <ul>
-<% @user_jobs.select {|user_job| user_job.job_phases.include?(phase)}.each do |job|  %>
+<% @user_jobs.each do |user_job| %>
 
-<li><%= link_to @job.job_title, root_path %></li>
-    <%= @job.company %>
+<% if user_job.current_phase? %>
+<li><%= link_to user_job.job.job_title, root_path %></li>
+<li><%= user_job.job.company %></li>
 
   <% end %>
 </ul>
  <p> Remember: next steps </p>
 <% end %>
-
 

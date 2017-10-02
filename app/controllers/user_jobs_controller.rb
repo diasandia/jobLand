@@ -13,9 +13,16 @@ class UserJobsController < ApplicationController
     else
     redirect_to new_user_session_path
     end
+
+    # @user_jobs = current_user.user_jobs
+
+    # @user_jobs.each do |user_job|
+    #   user_job.jobs.title
+    # end
+
+
   end
 
   def show
-
   end
 end
