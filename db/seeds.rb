@@ -121,9 +121,18 @@ PointCategory.create!(
   number_of_points: 5
   )
 
+PointCategory.create!(
+  category: "Glassdoor",
+  number_of_points: 5
+  )
+
 UserPoint.create!(
   user: User.first,
   point_category: PointCategory.first 
   )
 
+UserPoint.create!(
+  user: User.first,
+  point_category: PointCategory.second
+  )
 
