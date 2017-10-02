@@ -11,5 +11,6 @@ class UserJobsController < ApplicationController
   def show
     #change this once login works
     @user_job = UserJob.first
+
   end
 end

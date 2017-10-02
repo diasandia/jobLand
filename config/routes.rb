@@ -12,14 +12,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show] do
     resources :user_points
-    resources :user_jobs [:new, :create, :show]
+    resources :user_jobs
     resources :user_networking_events
   end
 
   resources :user_jobs do
     resources :jobs
     resources :job_phases
-    resources :notes [:new, :create]
+    resources :notes
     resources :events
   end
 
