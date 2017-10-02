@@ -30,13 +30,11 @@
   </div>
 </div>
 
-<div class="add-user-job-notes">
+<%= render partial: "notes/new.html.erb", locals: {resource: @user_job} %>
 
-  <%= form_tag( method: "post") do %>
-    <%= text_field_tag(:q) %>
-    <%= submit_tag("Add a note!") %>
-  <% end %>
-</div>
+
+<%= render partial: "notes/show.html.erb" %>
+
 
 
 

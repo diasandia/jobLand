@@ -5,7 +5,4 @@ class UserJob < ApplicationRecord
   has_many :events, as: :attendable
   has_many :notes, as: :notable
 
-def find_job_phase_id
-end
-
 end
