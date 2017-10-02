@@ -9,8 +9,6 @@
 
 User.delete_all
 Job.delete_all
-JobPhase.delete_all
-Phase.delete_all
 
 
 
@@ -40,7 +38,6 @@ Job.create!(
   url: "https://www.linkedin.com/jobs/view/414168848/",
   description: "Entry level software engineering role based in New York City",
   user: User.first,
-  job: Job.first,
   criteria_one_score: 5,
   criteria_two_score: 3,
   criteria_three_score: 4,
@@ -53,7 +50,6 @@ Job.create!(
   url: "https://www.facebook.com/careers/jobs/a0I1200000IAMY9EAP/",
   description: "Oculus role, lots of emphasison team-work",
   user: User.second,
-  job: Job.second,
   criteria_one_score: 1,
   criteria_two_score: 1,
   criteria_three_score: 1,
@@ -61,23 +57,23 @@ Job.create!(
   )
 
 
-PointCategory.create!(
-  category: "Linkedin",
-  number_of_points: 5
-  )
+# PointCategory.create!(
+#   category: "Linkedin",
+#   number_of_points: 5
+#   )
 
-PointCategory.create!(
-  category: "Glassdoor",
-  number_of_points: 5
-  )
+# PointCategory.create!(
+#   category: "Glassdoor",
+#   number_of_points: 5
+#   )
 
-UserPoint.create!(
-  user: User.first,
-  point_category: PointCategory.first
-  )
+# UserPoint.create!(
+#   user: User.first,
+#   point_category: PointCategory.first
+#   )
 
-UserPoint.create!(
-  user: User.first,
-  point_category: PointCategory.second
-  )
+# UserPoint.create!(
+#   user: User.first,
+#   point_category: PointCategory.second
+#   )
 

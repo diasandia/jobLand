@@ -6,7 +6,6 @@ class Jobs < ActiveRecord::Migration[5.1]
   		t.string :url
   		t.string :description
       t.references :user
-      t.references :job
       t.integer :criteria_one_score
       t.integer :criteria_two_score
       t.integer :criteria_three_score

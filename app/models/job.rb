@@ -4,11 +4,6 @@ class Job < ApplicationRecord
   has_many :notes, as: :notable
 
 
-
-  def current_phase
-    self.job_phases.last.phase.phase_name
-  end
-
   def next_steps
     case
       when self.current_phase == "Accepted"
@@ -25,14 +20,11 @@ class Job < ApplicationRecord
         return "Practice giving your personal elevator pitch. Understand how your background can contribute to company goals."
       when self.current_phase == "Informational Interview"
         return "Develop a list of questions for your interviewer. Look them up on LinkedIn."
-      when self.current_phase ==
-        "Applied"
+      when self.current_phase == "Applied"
         return "Go you! Now look up 5 people who work at the company and reach out to them!"
       when self.current_phase == "Wishlist"
         return "Research the company. Do you want to work there? Make sure it's aligned to your goals. Write a cover letter."
       end
-    end
-
   end
 
 end
