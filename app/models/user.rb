@@ -31,20 +31,29 @@ devise :database_authenticatable, :registerable,
   end
 
   def self.from_omniauth(omniauth_data)
-    # binding.pry
-    user = User.find_by(uid: omniauth_data[:uid])
-
-    if user
-      return user
-    else
-      user = User.new(uid: omniauth_data[:uid],
-                      first_name: omniauth_data[:first_name],
-                      last_name: omniauth_data[:last_name],
-                      email: omniauth_data[:email],
-                      profile_picture: omniauth_data.extra.raw_info.picture,
-                      google_access_token: omniauth_data.credentials.token)
-      return user
+    where(provider: omniauth_data.provider, uid: omniauth_data.uid).first_or_create do |user|
+      user.uid = omniauth_data.uid
+      user.provider = omniauth_data.provider
+      user.email = omniauth_data.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.first_name = omniauth_data.info.first_name   # assuming the user model has a name
+      user.last_name = omniauth_data.info.last_name   # assuming the user model has a name
+      # user.image = omniauth_data.info.image # assuming the user model has an image
+      user.profile_picture = omniauth_data.extra.raw_info.picture
+      # If you are using confirmable and the provider(s) you use validate emails,
+      # uncomment the line below to skip the confirmation emails.
+      # user.skip_confirmation!
     end
+    # User.find_or_create_by(
+    #   uid: omniauth_data.uid,
+    #   provider: omniauth_data.provider,
+    #   token: omniauth_data.credentials.token,
+    #   first_name: omniauth_data.info.first_name,
+    #   last_name: omniauth_data.info.last_name,
+    #   email: omniauth_data.info.email,
+    #   profile_picture: omniauth_data.extra.raw_info.picture,
+    #   google_access_token: omniauth_data.credentials.refresh_token
+    # )
   end
 end
 
