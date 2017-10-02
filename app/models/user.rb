@@ -29,6 +29,10 @@ devise :database_authenticatable, :registerable,
       end
   end
 
+  def total_points
+    self.user_points.reduce(0) { |sum, points| sum + points.point_category.number_of_points} 
+  end
+
 end
 
 
