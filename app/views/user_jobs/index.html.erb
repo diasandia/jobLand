@@ -1,5 +1,16 @@
-<h1> hello!</h1>
+<h1>Hi, <%= @current_user.first_name %></h1>
 
-<ul>
 
-</ul>
+#get all of the user jobs that belong to that user<br>
+
+<h1>Informational Interview</h1>
+<% @user_jobs.each do |user_job| %>
+  <% if user_job.job_phases.last.phase.id == 1 %>
+    <%= user_job.job.job_title %>
+      <li><%= user_job.job.company %></li>
+      <li>Last job phase recorded for this job:<%= user_job.job_phases.last.phase.phase_name %></li>
+    <% end %>
+
+  <% end  %>
+
+

@@ -5,7 +5,8 @@ class UserJobsController < ApplicationController
   end
 
   def index
-    # @user_jobs = current_user.user_jobs
+    @current_user = User.first
+    @user_jobs = current_user.user_jobs.all
   end
 
   def show
