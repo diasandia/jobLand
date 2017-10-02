@@ -5,4 +5,7 @@ class UserJob < ApplicationRecord
   has_many :events, as: :attendable
   has_many :notes, as: :notable
 
+  def current_phase
+    self.job_phases.last.phase.phase_name
+  end
 end
