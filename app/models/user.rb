@@ -4,15 +4,13 @@ class User < ApplicationRecord
 devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_many :user_jobs
-  has_many :jobs, through: :user_jobs
-  has_many :job_phases, through: :user_jobs
+  has_many :jobs
   has_many :events
   has_many :user_events
   has_many :networking_events, through: :user_events
   has_many :user_points
   has_many :point_categories, through: :user_points
-  has_many :notes
+  has_many :notes, as: :notable
 
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
@@ -57,7 +55,7 @@ devise :database_authenticatable, :registerable,
   end
 
   def total_points
-    self.user_points.reduce(0) { |sum, points| sum + points.point_category.number_of_points} 
+    self.user_points.reduce(0) { |sum, points| sum + points.point_category.number_of_points}
   end
 end
 
