@@ -30,7 +30,7 @@
   </div>
 </div>
 
-<%= render partial: "notes/new.html.erb" %>
+<%= render partial: "notes/new.html.erb", locals: {resource: @user_job} %>
 
 
 <%= render partial: "notes/show.html.erb" %>
