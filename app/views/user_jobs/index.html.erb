@@ -1,17 +1,11 @@
 
-<h2>Welcome, <%= @user.first_name %>! </h2>
- <% @user_phase.each do |phase| %>
-  <h3> <%= phase.phase_name %> </h3>
-
-<ul>
+<h1>Hi, <%= @current_user.first_name %></h1>
+#get all of the user jobs that belong to that user<br>
+<h1>Informational Interview</h1>
 <% @user_jobs.each do |user_job| %>
-
-<% if user_job.current_phase? %>
-<li><%= link_to user_job.job.job_title, root_path %></li>
-<li><%= user_job.job.company %></li>
-
-  <% end %>
-</ul>
- <p> Remember: next steps </p>
-<% end %>
-
+  <% if user_job.job_phases.last.phase.id == 1 %>
+    <%= user_job.job.job_title %>
+      <li><%= user_job.job.company %></li>
+      <li>Last job phase recorded for this job:<%= user_job.job_phases.last.phase.phase_name %></li>
+    <% end %>
+  <% end  %>
