@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
-  # def show
-  # end
 
-  # def edit
-  # end
+  def show
+  	@user = current_user
+  end
 
-  # def update
-  # end
 end

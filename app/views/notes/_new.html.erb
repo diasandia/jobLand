@@ -1,0 +1,9 @@
+<div class="add-user-job-notes">
+
+  <%= form_for [resource, @note] do |f| %>
+    <%= f.text_area :description, size: "60x12" %>
+    <%= f.submit "Add new note" %>
+  <% end %>
+
+
+</div>

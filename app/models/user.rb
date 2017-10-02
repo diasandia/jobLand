@@ -6,7 +6,7 @@ devise :database_authenticatable, :registerable,
 
   has_many :user_jobs
   has_many :jobs, through: :user_jobs
-  has_many :jobs_phases, through: :user_jobs
+  has_many :job_phases, through: :user_jobs
   has_many :events
   has_many :user_events
   has_many :networking_events, through: :user_events
@@ -54,6 +54,10 @@ devise :database_authenticatable, :registerable,
     #   profile_picture: omniauth_data.extra.raw_info.picture,
     #   google_access_token: omniauth_data.credentials.refresh_token
     # )
+  end
+
+  def total_points
+    self.user_points.reduce(0) { |sum, points| sum + points.point_category.number_of_points} 
   end
 end
 

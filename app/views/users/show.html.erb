@@ -1,2 +1,6 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Hello! <%= @user.first_name %></h1>
+<p> Recent points:: <%= @user.point_categories.last.number_of_points %></p>
+
+<p> Recent category:: <%= @user.point_categories.last.category %></p>
+
+<p> Total points:: <%= @user.total_points %></p>

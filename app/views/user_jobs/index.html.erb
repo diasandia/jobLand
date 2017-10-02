@@ -1,5 +1,22 @@
-<h1> hello!</h1>
+<h1>Hi, <%= @current_user.first_name %></h1>
+#get all of the user jobs that belong to that user<br>
 
-<ul>
+<h1>Phone Screen</h1>
+    <% @user_jobs.each do |user_job| %>
+      <% if user_job.current_phase == "Phone Screen" %>
+        <%= user_job.current_phase %>
+      <% end  %>
+    <% end  %>
 
-</ul>
+
+<h1>Informational Interview</h1>
+    <% @user_jobs.each do |user_job| %>
+    <table>
+      <% if user_job.current_phase == "Informational Interview" %>
+        <%= link_to user.user_job.job.job_title, user_user_job_path(user_job) %> <%= user_job.job.company %>
+    <% end  %>
+  <% end  %>
+
+
+
+
