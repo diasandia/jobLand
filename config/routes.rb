@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   root to: "user_jobs#index"
 
-  resources :jobs
+  resources :jobs, only: [:index, :show, :create]
   resources :phases
   resources :networking_events
 
