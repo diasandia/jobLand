@@ -1,19 +1,36 @@
 <h1>Hi, <%= @current_user.first_name %></h1>
-#get all of the user jobs that belong to that user<br>
 
-<h1>Phone Screen</h1>
+  <h1>Onsite Interview</h1>
     <% @user_jobs.each do |user_job| %>
-      <% if user_job.current_phase == "Phone Screen" %>
-        <%= user_job.current_phase %>
-      <% end  %>
+    <table>
+      <% if user_job.current_phase == "Onsite Interview" %>
+        <%= link_to user_job.job.job_title, user_user_job_path(user_job.user_id, user_job.id) %> <%= user_job.job.company %>
     <% end  %>
+  <% end  %>
+
+    <h1>Phone Screen</h1>
+    <% @user_jobs.each do |user_job| %>
+    <table>
+      <% if user_job.current_phase == "Phone Screen" %>
+        <%= link_to user_job.job.job_title, user_user_job_path(user_job.user_id, user_job.id) %> <%= user_job.job.company %>
+    <% end  %>
+  <% end  %>
 
 
 <h1>Informational Interview</h1>
     <% @user_jobs.each do |user_job| %>
     <table>
       <% if user_job.current_phase == "Informational Interview" %>
-        <%= link_to user.user_job.job.job_title, user_user_job_path(user_job) %> <%= user_job.job.company %>
+        <%= link_to user_job.job.job_title, user_user_job_path(user_job.user_id, user_job.id) %> <%= user_job.job.company %>
+    <% end  %>
+  <% end  %>
+
+
+    <h1>Technical screan</h1>
+    <% @user_jobs.each do |user_job| %>
+    <table>
+      <% if user_job.current_phase == "Onsite Interview" %>
+        <%= link_to user_job.job.job_title, user_user_job_path(user_job.user_id, user_job.id) %> <%= user_job.job.company %>
     <% end  %>
   <% end  %>
 
