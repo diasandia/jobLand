@@ -1,3 +1,14 @@
+  <% if @errors %>
+    <div id="error_explanation">
+      <ul>
+        <% @errors.each do |error| %>
+          <li><%= error%></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
 <h1>Hi, <%= @current_user.first_name %></h1>
 
   <h1>Accepted</h1>

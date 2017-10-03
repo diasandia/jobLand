@@ -1,3 +1,5 @@
+
+
 <div class="job-phase">
   <p>Job status</p>
   <p><%= @job.current_phase %></p>
@@ -29,10 +31,12 @@
   </div>
 </div>
 
+<%= render partial: "notes/show.html.erb", locals: {resource: @job} %>
+
 <%= render partial: "notes/new.html.erb", locals: {resource: @job} %>
 
 
-<%= render partial: "notes/show.html.erb" %>
+
 
 
 
