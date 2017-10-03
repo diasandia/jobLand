@@ -31,6 +31,12 @@
   </div>
 </div>
 
+<div id ="Hugo">
+<h3> Scorecard: </h3>
+<%= render partial: "edit.html.erb", locals: {resource: @job} %>
+</div>
+
+
 <%= render partial: "notes/new.html.erb", locals: {resource: @job} %>
 
 

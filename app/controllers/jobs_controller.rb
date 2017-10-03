@@ -22,4 +22,19 @@ class JobsController < ApplicationController
     @note = Note.new
   end
 
+   def update
+    @user= current_user
+    job= Job.find(params[:id])
+    if job.update(job_params)
+      redirect_to job_path
+    else
+      render :edit
+    end
+  end
+
+  private
+  def job_params
+    params.require(:job).permit(:criteria_one_score, :criteria_two_score, :criteria_three_score)
+  end
+
 end
