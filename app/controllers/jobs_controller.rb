@@ -26,7 +26,9 @@ class JobsController < ApplicationController
 
 
   def create
-    @job = Job.create(url: params[:url])
+    @user = User.find_by(email: params[:email])
+    @job = Job.create(url: params[:url], company: params[:company], job_title: params[:job_title], description: params[:description], user: @user, current_phase: "Wishlist")
+      render json: {status: 200}
   end
 
 end
