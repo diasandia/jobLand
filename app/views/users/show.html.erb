@@ -5,7 +5,7 @@
 
 <p> Total points:: <%= @user.total_points %></p>
 
-<% if @rubric != nil %>
+<% if @rubric %>
   <%= render partial: "rubrics/show.html.erb" %>
 <% else %>
   <%= render partial: "rubrics/new.html.erb" %>
