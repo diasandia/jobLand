@@ -1,6 +1,6 @@
-class CreateStandards < ActiveRecord::Migration[5.1]
+class CreateRubrics < ActiveRecord::Migration[5.1]
   def change
-    create_table :standards do |t|
+    create_table :rubrics do |t|
       t.string :standard_one, default: "Experienced Manager"
       t.string :standard_two, default: "Location"
       t.string :standard_three, default: "Diversity & Inclusion"

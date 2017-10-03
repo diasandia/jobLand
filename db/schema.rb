@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(version: 20171003024505) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "standards", force: :cascade do |t|
-    t.string "standard_one", default: "Standard One"
-    t.string "standard_two", default: "Standard Two"
-    t.string "standard_three", default: "Standard Three"
+  create_table "rubrics", force: :cascade do |t|
+    t.string "standard_one", default: "Experienced Manager"
+    t.string "standard_two", default: "Location"
+    t.string "standard_three", default: "Diversity & Inclusion"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
