@@ -4,6 +4,7 @@ class User < ApplicationRecord
 devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
+  has_many :standards
   has_many :jobs
   has_many :events
   has_many :user_events
@@ -11,7 +12,6 @@ devise :database_authenticatable, :registerable,
   has_many :user_points
   has_many :point_categories, through: :user_points
   has_many :notes, as: :notable
-
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info

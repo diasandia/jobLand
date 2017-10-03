@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003015434) do
+ActiveRecord::Schema.define(version: 20171003024505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(version: 20171003015434) do
     t.integer "number_of_points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "standards", force: :cascade do |t|
+    t.string "standard_one", default: "Standard One"
+    t.string "standard_two", default: "Standard Two"
+    t.string "standard_three", default: "Standard Three"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_standards_on_user_id"
   end
 
   create_table "user_events", force: :cascade do |t|
