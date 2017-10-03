@@ -1,12 +1,19 @@
 class JobsController < ApplicationController
+
+ def new
+    @user_job = UserJob.new
+  end
+
   def index
-    jobs = Job.all
-    render json: jobs
+    #change this to current user
+    @test_user = User.first
+    @jobs = @test_user.jobs.all
   end
 
   def show
-    job = Job.find(params[:id])
-    render json: job
+    @user = current_user
+    @job = @user.jobs.find(params[:id])
+    @note = Note.new
   end
 
 end
