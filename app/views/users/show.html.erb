@@ -5,6 +5,6 @@
 
 <p> Total points:: <%= @user.total_points %></p>
 
-  <%= render partial: "rubrics/show.html.erb" %>
+  <%= render partial: "rubrics/show.html.erb", locals: { resource: @user} %>
 
-  <%= render partial: "rubrics/new.html.erb" %>
+<%= render partial: "rubrics/new.html.erb",locals:   {resource: @user} %>
