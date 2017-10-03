@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20171003024505) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_standards_on_user_id"
+    t.index ["user_id"], name: "index_rubrics_on_user_id"
   end
 
   create_table "user_events", force: :cascade do |t|

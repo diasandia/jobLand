@@ -1,8 +1,8 @@
 <p>Write three criteria that matter to you in your job search</p>
 
- <%= form_for [current_user, @rubric] do |f| %>
+  <%= form_for @rubric, url: user_rubrics_path(user_id: current_user.id), remote: true do |f| %>
     <%= f.text_area :standard_one %>
     <%= f.text_area :standard_two %>
     <%= f.text_area :standard_three %>
-    <%= f.submit "Add new note" %>
+    <%= f.submit "Submit" %>
   <% end %>
