@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = current_user
-    @rubric = Rubric.new
+    @new_rubric = Rubric.new
+    @rubric = current_user.rubrics.last
   end
 
 end

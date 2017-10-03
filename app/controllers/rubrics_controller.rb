@@ -16,7 +16,7 @@ class RubricsController < ApplicationController
   end
 
   def show
-    @rubric = current_user.rubrics.all
+    @rubric = current_user.rubrics.last
   end
 
   private
