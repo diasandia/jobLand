@@ -21,6 +21,10 @@ User.create!(
   password: "password"
   )
 
+d = User.first
+d.rubrics.create(standard_one: "i want this", standard_two: "i want that", standard_three: "i want those")
+
+
 User.create!(
   first_name: "Maren",
   last_name: "Lettuce",
