@@ -11,7 +11,6 @@ User.delete_all
 Job.delete_all
 
 
-
 User.create!(
   first_name: "Diana",
   last_name: "Apple",
@@ -31,6 +30,7 @@ User.create!(
   email: "Maren@maren.com",
   password: "password"
   )
+
 
 Job.create!(
   company: "PayPal",
