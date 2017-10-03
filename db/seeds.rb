@@ -8,9 +8,7 @@
 
 
 User.delete_all
-Standard.delete_all
 Job.delete_all
-
 
 
 User.create!(
@@ -33,11 +31,6 @@ User.create!(
   password: "password"
   )
 
-# Standard.create!(
-#     user_id: 1,
-#     standard_one: "Standard One"
-
-#     )
 
 Job.create!(
   company: "PayPal",

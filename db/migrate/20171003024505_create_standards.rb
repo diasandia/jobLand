@@ -1,9 +1,9 @@
 class CreateStandards < ActiveRecord::Migration[5.1]
   def change
     create_table :standards do |t|
-      t.string :standard_one, default: "Standard One"
-      t.string :standard_two, default: "Standard Two"
-      t.string :standard_three, default: "Standard Three"
+      t.string :standard_one, default: "Experienced Manager"
+      t.string :standard_two, default: "Location"
+      t.string :standard_three, default: "Diversity & Inclusion"
       t.references :user
 
       t.timestamps
