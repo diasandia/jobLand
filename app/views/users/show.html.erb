@@ -1,7 +1,7 @@
-<h1>Hello! <%= @user.first_name %></h1>
-<p> Recent points:: <%= @user.point_categories.last.number_of_points %></p>
+<h1>Hello! <%= @user %></h1>
+<p> Recent points:: <%= @user.point_categories.last&.number_of_points %></p>
 
-<p> Recent category:: <%= @user.point_categories.last.category %></p>
+<p> Recent category:: <%= @user.point_categories.last&.category %></p>
 
 <p> Total points:: <%= @user.total_points %></p>
 
