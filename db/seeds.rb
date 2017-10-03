@@ -45,6 +45,18 @@ Job.create!(
   )
 
 Job.create!(
+  company: "Reddit",
+  job_title: "Software Engineer - Entry Level",
+  url: "https://www.linkedin.com/jobs/view/414168848/",
+  description: "Entry level software engineering role based in San Francisco",
+  user: User.first,
+  criteria_one_score: 5,
+  criteria_two_score: 4,
+  criteria_three_score: 4,
+  current_phase: "Onsite Interview"
+  )
+
+Job.create!(
   company: "Facebook",
   job_title: "Android Engineer - Oculus",
   url: "https://www.facebook.com/careers/jobs/a0I1200000IAMY9EAP/",

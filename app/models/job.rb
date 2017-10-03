@@ -27,4 +27,31 @@ class Job < ApplicationRecord
       end
   end
 
+  def points 
+    case
+      when self.current_phase == "Accepted"
+        return 1500
+      when self.current_phase == "Offer"
+        return 1000
+      when self.current_phase == "Checking references"
+        return 50
+      when self.current_phase == "Onsite Interview"
+        return 500
+      when self.current_phase == "Technical Phone Screen"
+        return 400
+      when self.current_phase == "Phone Screen"
+        return 300
+      when self.current_phase == "Informational Interview"
+        return 200
+      when self.current_phase == "Applied"
+        return 100
+      when self.current_phase == "Wishlist"
+        return 50
+      end
+  end 
+
+  def self.total_job_points
+    self.all.reduce(0) { |sum, job| sum + job.points}
+  end
+
 end
