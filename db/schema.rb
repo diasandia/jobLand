@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(version: 20171003024505) do
   end
 
   create_table "rubrics", force: :cascade do |t|
-    t.string "standard_one", default: "Experienced Manager"
-    t.string "standard_two", default: "Location"
-    t.string "standard_three", default: "Diversity & Inclusion"
+    t.string "standard_one"
+    t.string "standard_two"
+    t.string "standard_three"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

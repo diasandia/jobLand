@@ -1,5 +1,3 @@
-<h1> This job belongs to <%= current_user %></h1>
-
 <div class="job-phase">
   <p>Job status</p>
   <p><%= @job.current_phase %></p>
@@ -9,7 +7,7 @@
   <div class="job-section-header">
     <h2> <%= @job.job_title %></h2>
   </div>
-  <p><%= @job.url %></p>
+  <p><%= link_to @job.url, @job.url %></p>
   <p> <%= @job.company %></p>
   <p><%= @job.description %></p>
 </div>
