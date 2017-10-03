@@ -6,8 +6,8 @@ class RubricsController < ApplicationController
   end
 
   def create
-    p rubric_params
     p "*" * 100
+    p rubric_params
     @rubric = current_user.rubrics.new(rubric_params)
     p @rubric.errors.full_messages
     @rubric.save
