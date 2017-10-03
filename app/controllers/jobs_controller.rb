@@ -1,5 +1,7 @@
 class JobsController < ApplicationController
 
+  protect_from_forgery :except => [:create]
+
  def new
     @job = Job.new
   end
@@ -20,6 +22,13 @@ class JobsController < ApplicationController
     @job = current_user.jobs.find(params[:id])
     p @job
     @note = Note.new
+  end
+
+
+  def create
+    @user = User.find_by(email: params[:email])
+    @job = Job.create(url: params[:url], company: params[:company], job_title: params[:job_title], description: params[:description], user: @user, current_phase: "Wishlist")
+      render json: {status: 200}
   end
 
 end
