@@ -2,7 +2,7 @@ class RubricsController < ApplicationController
 
 
   def new
-    @rubric = Rubric.new
+    @rubric = current_user.rubrics.new
   end
 
   def create
@@ -12,10 +12,11 @@ class RubricsController < ApplicationController
     p @rubric.errors.full_messages
     @rubric.save
 
+    redirect_to current_user
   end
 
   def show
-    @rubric = Rubric.find(params[:id])
+    @rubric = current_user.rubrics.all
   end
 
   private
