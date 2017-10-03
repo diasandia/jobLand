@@ -1,5 +1,12 @@
-<div class="show-user-note">
-  <% @job.notes do |note| %>
-  <%= note.description %>
-  <% end  %>
-</div>
+<% if @job.notes %>
+<fieldset>
+<legend>NOTES</legend>
+  <div class="show-user-note">
+    <% @job.notes.each do |note| %>
+    <%= note.description %>
+    <% end  %>
+  </div>
+</fieldset>
+
+
+<% end %>

@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.close-button.button.border-box {
+  font-size: 50px;
+  margin-left: -30px;
+  margin-top: 5px;
+}

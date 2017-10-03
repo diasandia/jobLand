@@ -17,9 +17,9 @@ class JobsController < ApplicationController
 
   def show
     p "*" * 100
-    p params
     @user = current_user
     @job = current_user.jobs.find(params[:id])
+
     p @job
     @note = Note.new
   end
