@@ -31,4 +31,18 @@ class JobsController < ApplicationController
       render json: {status: 200}
   end
 
+  def edit
+    @job = Job.find(:id)
+    @phases = ["Wishlist","Applied","Informational Interview","Phone Screen","Technical Phone Screen","Onsite Interview","Checking references","Offer","Accepted"]
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    if @job.update(current_phase: params[:current_phase])
+      redirect_to @job
+    else
+      render 'edit'
+    end
+  end
+
 end

@@ -1,9 +1,7 @@
-<h1> This job belongs to <%= current_user %></h1>
+<h1> Get geared up to work at <%= @job.company %>, <%= @user.first_name %>!</h1>
 
-<div class="job-phase">
-  <p>Job status</p>
-  <p><%= @job.current_phase %></p>
-</div>
+<%= render partial: "edit.html.erb", locals: {resource: @job} %>
+
 
 <div class="job-info">
   <div class="job-section-header">
