@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def show
   	@user = current_user
     @new_rubric = Rubric.new

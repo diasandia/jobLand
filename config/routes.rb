@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks'}
+ devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "jobs#index"
@@ -19,7 +19,4 @@ Rails.application.routes.draw do
     resources :notes, only: [:new, :create, :update, :destroy]
     resources :events, only: [:new, :create, :show]
   end
-
-
-
 end
