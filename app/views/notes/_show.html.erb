@@ -4,7 +4,7 @@
   <div class="show-user-note">
     <% @job.notes.each do |note| %>
     <%= note.description %>
-      <p>Added on: <%= note.created_at %></p>
+      <p>Added on: <%= note.created_at.strftime("%B, %-d, %Y") %></p>
     <% end  %>
   </div>
 </fieldset>
