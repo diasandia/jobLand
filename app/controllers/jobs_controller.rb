@@ -26,11 +26,15 @@ class JobsController < ApplicationController
     @user= current_user
     job= Job.find(params[:id])
     if job.update(job_params)
-      redirect_to job_path
+      respond_to do |format|
+        format.html { redirect_to job_path}
+        format.js
+      end
     else
       render :edit
     end
   end
+
 
   private
   def job_params

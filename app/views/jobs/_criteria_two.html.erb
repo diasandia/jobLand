@@ -1,0 +1,13 @@
+
+<div id="criteria-two" style="display: flex">
+   <% (1..5).each do |count| %>
+ <%= form_for @job, remote: true do |f| %>
+    <%= f.hidden_field :criteria_two_score, value: count %>
+      <% if @job.criteria_two_score >= count %>
+        <%= f.submit '♥' %>
+      <% else %>
+    <%= f.submit '♡' %>
+    <% end %>
+  <% end %>
+ <% end %>
+</div>
