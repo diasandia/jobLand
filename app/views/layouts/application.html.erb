@@ -14,7 +14,7 @@
         <% if user_signed_in? %>
           <p> Welcome <%= current_user.first_name %>
           <%= link_to "Profile", user_path(current_user.id) %>
-          <%= link_to "Calendar", user_events_path(current_user.id) %>
+          <%= link_to "Calendar", calendars_user_path(current_user.id) %>
           <%= link_to "My Jobs", root_path(current_user.id) %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 
