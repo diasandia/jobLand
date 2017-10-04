@@ -1,0 +1,20 @@
+<%= form_tag job_path(@job), :method => :put do |form| %>
+
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@job.errors.count, "error") %> prohibited
+        this job from being saved:
+      </h2>
+      <ul>
+        <% @job.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= select_tag "current_phase", options_for_select(["Wishlist","Applied","Informational Interview","Phone Screen","Technical Phone Screen","Onsite Interview","Checking references","Offer","Accepted"], :selected => @job.current_phase) %>
+  <%= submit_tag "go", name: nil, class: 'btn' %>
+
+<% end %>

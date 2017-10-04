@@ -1,6 +1,7 @@
+
 <h1> Get geared up to work at <%= @job.company %>, <%= @user.first_name %>!</h1>
 
-<%= render partial: "edit.html.erb", locals: {resource: @job} %>
+<%= render partial: "edit_current_phase.html.erb", locals: {resource: @job} %>
 
 <div>
   <h2>Here are your next steps:</h2>
@@ -16,28 +17,12 @@
   <p><%= @job.description %></p>
 </div>
 
-<div class="scorecard">
-  <h3>Here's how this job currently stacks up against your scorecard:</h3>
-  <div class="criteria">
-    <p>Criteria 1: <%= @user.criteria_one%></p>
-    <p>Current score: <%=
-    @job.criteria_one_score %>
-  </div>
-  <div class="criteria">
-    <p>Criteria 2: <%= @user.criteria_two%></p>
-    <p>Current score: <%= @job.criteria_two_score %>
-  </div>
-  <div class="criteria">
-    <p>Criteria 3: <%= @user.criteria_three%></p>
-    <p>Current score: <%= @job.criteria_three_score %>
-  </div>
-</div>
+<h3> Scorecard: </h3>
+<%= render partial: "edit.html.erb", locals: {resource: @job} %>
 
 <%= render partial: "notes/show.html.erb", locals: {resource: @job} %>
 
 <%= render partial: "notes/new.html.erb", locals: {resource: @job} %>
-
-
 
 
 

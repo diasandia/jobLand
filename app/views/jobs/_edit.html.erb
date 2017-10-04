@@ -1,21 +1,19 @@
-<%= form_tag job_path(@job), :method => :put do |form| %>
+<div class ="love-icon" style="display: flex">
+  <p> Experienced Manager </p>
+  <%= render partial: 'criteria_one', locals: { job: @job } %>
+</div>
 
-  <% if @job.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@job.errors.count, "error") %> prohibited
-        this job from being saved:
-      </h2>
-      <ul>
-        <% @job.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class ="love-icon" style="display: flex">
+   <p> Great pay and benefits </p>
 
-<%= select_tag "current_phase", options_for_select(["Wishlist","Applied","Informational Interview","Phone Screen","Technical Phone Screen","Onsite Interview","Checking references","Offer","Accepted"], :selected => @job.current_phase) %>
-  <%= submit_tag "go", name: nil, class: 'btn' %>
+     <%= render partial: 'criteria_two', locals: { job: @job } %>
 
-<% end %>
+</div>
+
+<div class ="love-icon" style="display: flex">
+  <p> Mentorship </p>
+  <%= render partial: 'criteria_three', locals: { job: @job } %>
+</div>
+
+
 
