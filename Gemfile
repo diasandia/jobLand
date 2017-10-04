@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.4'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
-gem 'google-api-client', require: 'google/apis/calendar_v3'
+gem 'google-api-client', '0.8.2', require: 'google/api_client'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server

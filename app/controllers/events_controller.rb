@@ -1,14 +1,15 @@
-require 'google/apis/calendar_v3'
-require 'googleauth'
-require 'googleauth/stores/file_token_store'
-
-require 'fileutils'
-
 
 class EventsController < ApplicationController
 
   def index
 
+  end
+
+  def make_google_calendar_reservations
+    @schedule = @cohort.schedules.find_by(slug:
+      params[:slug])
+    @calendar = GoogleCalWrapper.new(current_user)
+    @calendar.book_rooms(@schedule)
   end
 
 end

@@ -80,6 +80,13 @@ devise :database_authenticatable, :registerable,
     self.user_points.reduce(0) { |sum, points| sum + points.point_category.number_of_points}
   end
 
+  def make_google_calendar_reservations
+  @schedule = @cohort.schedules.find_by(slug:
+    params[:slug])
+  @calendar = GoogleCalWrapper.new(current_user)
+  @calendar.book_rooms(@schedule)
+  end
+
   # def update_without_password(params={})
   #   p params
   #   p "AM I HERE. MOFO"
