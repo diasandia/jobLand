@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 20171003024505) do
     t.string "url"
     t.string "description"
     t.bigint "user_id"
-    t.integer "criteria_one_score"
-    t.integer "criteria_two_score"
-    t.integer "criteria_three_score"
+    t.integer "criteria_one_score", default: 1
+    t.integer "criteria_two_score", default: 1
+    t.integer "criteria_three_score", default: 1
     t.string "current_phase"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
