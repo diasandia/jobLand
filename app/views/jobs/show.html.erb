@@ -1,15 +1,18 @@
-<h1> This job belongs to <%= current_user.first_name %></h1>
 
-<div class="job-phase">
-  <p>Job status</p>
-  <p><%= @job.current_phase %></p>
+<h1> Get geared up to work at <%= @job.company %>, <%= @user.first_name %>!</h1>
+
+<%= render partial: "edit.html.erb", locals: {resource: @job} %>
+
+<div>
+  <h2>Here are your next steps:</h2>
+  <p><%= @job.next_steps %></p>
 </div>
 
 <div class="job-info">
   <div class="job-section-header">
     <h2> <%= @job.job_title %></h2>
   </div>
-  <p><%= @job.url %></p>
+  <p><%= link_to @job.url, @job.url %></p>
   <p> <%= @job.company %></p>
   <p><%= @job.description %></p>
 </div>
@@ -17,9 +20,10 @@
 <h3> Scorecard: </h3>
 <%= render partial: "edit.html.erb", locals: {resource: @job} %>
 
+<%= render partial: "notes/show.html.erb", locals: {resource: @job} %>
+
 <%= render partial: "notes/new.html.erb", locals: {resource: @job} %>
 
-<%= render partial: "notes/show.html.erb" %>
 
 
 

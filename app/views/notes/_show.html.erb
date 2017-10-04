@@ -1,5 +1,13 @@
-<div class="show-user-note">
-  <% @job.notes do |note| %>
-  <%= note.description %>
-  <% end  %>
-</div>
+<% if @job.notes %>
+<fieldset>
+<legend>NOTES</legend>
+  <div class="show-user-note">
+    <% @job.notes.each do |note| %>
+    <%= note.description %>
+      <p>Added on: <%= note.created_at.strftime("%B, %-d, %Y") %></p>
+    <% end  %>
+  </div>
+</fieldset>
+
+
+<% end %>

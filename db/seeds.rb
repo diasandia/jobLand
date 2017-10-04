@@ -11,7 +11,6 @@ User.delete_all
 Job.delete_all
 
 
-
 User.create!(
   first_name: "Diana",
   last_name: "Apple",
@@ -21,6 +20,10 @@ User.create!(
   email: "d@diana.com",
   password: "password"
   )
+
+d = User.first
+d.rubrics.create(standard_one: "i want this", standard_two: "i want that", standard_three: "i want those")
+
 
 User.create!(
   first_name: "Maren",
@@ -32,6 +35,7 @@ User.create!(
   password: "password"
   )
 
+
 Job.create!(
   company: "PayPal",
   job_title: "Software Engineer - Entry Level",
@@ -42,6 +46,18 @@ Job.create!(
   criteria_two_score: 3,
   criteria_three_score: 4,
   current_phase: "Informational Interview"
+  )
+
+Job.create!(
+  company: "Reddit",
+  job_title: "Software Engineer - Entry Level",
+  url: "https://www.linkedin.com/jobs/view/414168848/",
+  description: "Entry level software engineering role based in San Francisco",
+  user: User.first,
+  criteria_one_score: 5,
+  criteria_two_score: 4,
+  criteria_three_score: 4,
+  current_phase: "Onsite Interview"
   )
 
 Job.create!(
@@ -57,23 +73,23 @@ Job.create!(
   )
 
 
-# PointCategory.create!(
-#   category: "Linkedin",
-#   number_of_points: 5
-#   )
+PointCategory.create!(
+  category: "Linkedin",
+  number_of_points: 5
+  )
 
-# PointCategory.create!(
-#   category: "Glassdoor",
-#   number_of_points: 5
-#   )
+PointCategory.create!(
+  category: "Glassdoor",
+  number_of_points: 5
+  )
 
-# UserPoint.create!(
-#   user: User.first,
-#   point_category: PointCategory.first
-#   )
+UserPoint.create!(
+  user: User.first,
+  point_category: PointCategory.first
+  )
 
-# UserPoint.create!(
-#   user: User.first,
-#   point_category: PointCategory.second
-#   )
+UserPoint.create!(
+  user: User.first,
+  point_category: PointCategory.second
+  )
 
