@@ -24,6 +24,25 @@ class JobsController < ApplicationController
     @note = Note.new
   end
 
+<<<<<<< HEAD
+   def update
+    @user= current_user
+    job= Job.find(params[:id])
+    if job.update(job_params)
+      respond_to do |format|
+        format.html { redirect_to job_path}
+        format.js
+      end
+    else
+      render :edit
+    end
+  end
+
+
+  private
+  def job_params
+    params.require(:job).permit(:criteria_one_score, :criteria_two_score, :criteria_three_score)
+=======
 
   def create
     @user = User.find_by(email: params[:email])
@@ -43,6 +62,7 @@ class JobsController < ApplicationController
     else
       render 'edit'
     end
+>>>>>>> development
   end
 
 end
