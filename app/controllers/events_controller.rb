@@ -36,38 +36,16 @@ class EventsController < ApplicationController
 ######Here's what we should do after lunch:
 ## get to the calendars method in the controller. We want to render the index erb file and pass through locals that have the information from google calendar.
 
-  def events
-    result = api_client.execute(:api_method => calendar.events.list,
-                            :parameters => {'calendarId' => 'primary'},
-                            :authorization => user_credentials)
-    result.data
-  end
+#why is calendars not showing the events that we're calling inside t- events aren't showing up in it, but they should
+
+
 
   def calendars
-    events
+    p "$" * 100
+    p params
+    @results = Event.get_cal_events
   end
 
 
-  private
 
-  def api_client
-    @client ||= begin
-      client = Google::APIClient.new(application_name: 'JobLand', application_version: '0.0.1')
-      client.authorization.client_id = ENV["GOOGLE_CLIENT_ID"]
-      client.authorization.client_secret = ENV["GOOGLE_CLIENT_SECRET"]
-      client.authorization.scope = 'https://www.googleapis.com/auth/calendar'
-      client
-    end
-  end
-
-  def calendar
-    @calendar ||= api_client.discovered_api('calendar', 'v3')
-  end
-
-  def user_credentials
-    auth = api_client.authorization.dup
-    # @user.credentials is an OmniAuth::AuthHash  cerated from request.env['omniauth.auth']['credentials']
-    auth.update_token!(access_token: current_user.credentials.token)
-    auth
-  end
 end
