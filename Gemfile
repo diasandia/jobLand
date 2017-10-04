@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.5'
 # this fixes cors
 gem 'rack-cors', :require => 'rack/cors'
 
+# uses google claendar
+gem 'google-api-client', require: 'google/apis/calendar_v3'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
