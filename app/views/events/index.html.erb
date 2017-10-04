@@ -1,7 +1,4 @@
-<h1>##My list of events will go here!</h1>
+<h1>My list of events will go here!</h1>
 
 <ul>
-  <% @calendar_list.items.each do |calendar| %>
-    <li><%= calendar.summary %> (<%= calendar.id %>)</li>
-  <% end %>
-</ul>
+  <%= calendars %>
