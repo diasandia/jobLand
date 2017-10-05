@@ -22,3 +22,10 @@
   margin-top: 5px;
 }
 
+body {
+   margin: 15px; 
+   padding-top: 1em;
+   padding-left: 2em; 
+   padding-right: 2em; 
+} 
+
