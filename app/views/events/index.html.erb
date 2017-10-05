@@ -1,1 +1,12 @@
 <h1>Coming Soon...</h1>
+
+<div class="events=list">
+  <% @events.each do |e| %>
+  <ul>
+    <strong><%= e.title %></strong>
+    <li><%= e.description %></li>
+    <li><%= e.location %></li>
+    <li><%= e.datetime %></li>
+  </ul>
+  <% end %>
+</div>
