@@ -43,7 +43,8 @@ class EventsController < ApplicationController
   def calendars
     p "$" * 100
     p params
-    @results = Event.get_cal_events
+    passing_authorization = session[:authorization]
+    @results = Event.get_cal_events(passing_authorization)
   end
 
 

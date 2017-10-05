@@ -22,3 +22,36 @@
   margin-top: 5px;
 }
 
+
+.login {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+}
+
+.login li {
+  display: block;
+  float: left;
+}
+
+.login a {
+    text-align: center;
+    display: block;
+    padding: 14px 16px;
+    color: #d3d3d3;
+    text-decoration: none;
+
+      border-radius: 50%;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+          transition:         transform .2s ease-in-out;
+}
+
+li a:hover {
+       color: #A926CF;
+         -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+
+}
