@@ -34,7 +34,6 @@ class JobsController < ApplicationController
   end
 
   def create
-    p "ARE WE PUTTING STUFF IN HERE?!?!?!?!?!?!?!?!?!?!?!?!?!"
     if params[:job] #is this the form or the extension?
       @user = current_user
       @job = Job.new(
@@ -46,7 +45,6 @@ class JobsController < ApplicationController
               current_phase: "Wishlist"
               )
     else
-      p errors.full_messages
       @user = User.find_by(email: params[:email])
       @job = Job.new(
               url: params[:url],

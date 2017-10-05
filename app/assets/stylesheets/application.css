@@ -107,13 +107,14 @@ body {
 }
 
 .navbar {
-    margin: 0;
-    padding: 0;
-    height: 60px;
-    overflow: hidden;
-    background-color: #d3d3d3;
-    display: flex;
-    align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 60px;
+  overflow: hidden;
+  background-color: #d3d3d3;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .navbar li {
@@ -155,10 +156,13 @@ li a:hover {
 }
 
 #profile-pic {
-  top: 0px;
-  right: opx;
-  position: relative;
-  float: right;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+#profile-picture-image{
+  border-radius: 50%;
 }
 
 #wish-list {
