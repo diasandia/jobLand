@@ -1,3 +1,3 @@
-$('#criteria-two').html('<%= j render partial: "criteria_two", locals: { job: current_job } %> ' );
-$('#criteria-one').html('<%= j render partial: "criteria_one", locals: { job: current_job } %> ' );
-$('#criteria-three').html('<%= j render partial: "criteria_three", locals: { job: current_job } %> ' );
+$('#criteria-two').html('<%= j render partial: "criteria_two", locals: { job: @job } %> ' );
+$('#criteria-one').html('<%= j render partial: "criteria_one", locals: { job: @job } %> ' );
+$('#criteria-three').html('<%= j render partial: "criteria_three", locals: { job: @job } %> ' );

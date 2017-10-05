@@ -68,9 +68,4 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:criteria_one_score, :criteria_two_score, :criteria_three_score)
   end
-
-
-
-
-
 end

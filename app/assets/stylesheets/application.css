@@ -16,19 +16,24 @@
  */
 
 
-.close-button.button.border-box {
-  font-size: 50px;
-  margin-left: -30px;
-  margin-top: 5px;
-}
-
 /* Embed Font */
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
 
 /* Use the following CSS rules to specify these families */
 body {
   font-family: 'Roboto Slab', serif;
+  margin: 15px; 
+  padding-top: 1em;
+  padding-left: 2em; 
+  padding-right: 2em; 
 }
+
+.close-button.button.border-box {
+  font-size: 50px;
+  margin-left: -30px;
+  margin-top: 5px;
+}
+
 
 /* Mobile First Media Queries */
 
@@ -44,13 +49,6 @@ body {
 /* Larger than desktop screen */
 @media (min-width: 120.0rem) { ... }
 
-/* Embed Font */
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
-
-/* Use the following CSS rules to specify these families */
-body {
-  font-family: 'Roboto Slab', serif;
-}
 
 /* Extending The Inheritances */
 
@@ -82,3 +80,4 @@ body {
   line-height: 4.5rem;
   padding: 0 2rem;
 }
+
