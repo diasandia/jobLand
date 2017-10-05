@@ -22,10 +22,10 @@
 /* Use the following CSS rules to specify these families */
 body {
   font-family: 'Roboto Slab', serif;
-  margin: 15px; 
+  margin: 15px;
   padding-top: 1em;
-  padding-left: 2em; 
-  padding-right: 2em; 
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .close-button.button.border-box {
@@ -80,4 +80,43 @@ body {
   line-height: 4.5rem;
   padding: 0 2rem;
 }
+
+
+.close-button.button.border-box {
+  font-size: 50px;
+  margin-left: -30px;
+  margin-top: 5px;
+}
+.login {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+.login li {
+  display: block;
+  float: left;
+}
+.login a {
+    text-align: center;
+    display: block;
+    padding: 14px 16px;
+    color: #d3d3d3;
+    text-decoration: none;
+      border-radius: 50%;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+          transition:         transform 1s ease-in-out;
+}
+li a:hover {
+       color: #A926CF;
+         -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+
+
+
+
+
 

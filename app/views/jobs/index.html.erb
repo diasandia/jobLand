@@ -6,7 +6,10 @@
   <% if @accepted_jobs.any? %><h3>Accepted</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Accepted" %>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+      <tr class="job-listing">
+        <td><%= link_to job.job_title, job_path(job.id) %> </td>
+        <td><%= job.company %> </td><br>
+      </tr>
       <% end %>
     <%end %>
     <br>
@@ -62,7 +65,7 @@
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Informational Interview" %>
         <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>
-      <% end %> 
+      <% end %>
     <%end %>
     <br>
   <% end %>
