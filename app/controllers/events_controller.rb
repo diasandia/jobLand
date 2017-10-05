@@ -1,16 +1,14 @@
 class EventsController < ApplicationController
 
-
-
   # def redirect
   #   client = Signet::OAuth2::Client.new(client_options)
   #   p "@" * 200
-    # client.update!(session[:authorization])
+  #   client.update!(session[:authorization])
 
-    # service = Google::Apis::CalendarV3::CalendarService.new
-    # service.authorization = client
+  #   service = Google::Apis::CalendarV3::CalendarService.new
+  #   service.authorization = client
 
-    # @calendar_list = service.list_calendar_lists
+  #   @calendar_list = service.list_calendar_lists
   #   redirect_to client.authorization_uri.to_s
   # end
 
@@ -53,20 +51,19 @@ class EventsController < ApplicationController
 
 
 
-######Here's what we should do after lunch:
-## get to the calendars method in the controller. We want to render the index erb file and pass through locals that have the information from google calendar.
+#####Here's what we should do after lunch:
+# get to the calendars method in the controller. We want to render the index erb file and pass through locals that have the information from google calendar.
 
-#why is calendars not showing the events that we're calling inside t- events aren't showing up in it, but they should
+# why is calendars not showing the events that we're calling inside t- events aren't showing up in it, but they should
 
 # THIS ONE HITS THE EVENT MODEL
 
-  # def calendars
-  #   user = current_user
-  #   # refreshment = user.refreshment
-  #   longstring = user.id_token
-  #   passing_authorization = user.google_access_token
-  #   @results = Event.get_cal_events(passing_authorization, refresh_token, id_token)
-  # end
+  def calendars
+    user = current_user
+    # refreshment = user.refreshment
+    passing_authorization = user.google_access_token
+    @results = Event.get_cal_events(passing_authorization)
+  end
 
 
 
