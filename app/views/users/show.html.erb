@@ -8,9 +8,12 @@
 
 <br>
 
+
+<div class="rubric-edit">
 <% if @rubric %>
   <%= render partial: "rubrics/show", locals: { resource: current_user } %>
-  <%= button_to "Edit Criteria", edit_user_rubric_path(current_user), locals: { resource: current_user, rubric: @rubric }, :method => :get %>
+  <%= button_to "Edit Criteria", edit_user_rubric_path(current_user, @rubric), :method => :get, remote: true %>
 <% else %>
   <%= render partial: "rubrics/new", locals: { resource: current_user } %>
 <% end %>
+</div>

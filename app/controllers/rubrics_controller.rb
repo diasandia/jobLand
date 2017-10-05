@@ -21,13 +21,17 @@ class RubricsController < ApplicationController
 
   def edit
     @rubric = current_user.rubrics.last
+
   end
 
   def update
     @rubric = current_user.rubrics.last
 
     if @rubric.update(rubric_params)
-      redirect_to current_user
+      respond_to do |format|
+        format.html {redirect_to current_user}
+        format.js
+      end
     else
       @errors = @rubric.errors.full_messages
       render :edit
