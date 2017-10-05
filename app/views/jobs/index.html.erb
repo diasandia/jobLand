@@ -1,12 +1,12 @@
-<h1>Hi, <%= @current_user.first_name %></h1>
+<h1>Hi, <%= current_user.first_name.capitalize %>!</h1>
 
-<h2>Here's what's on your radar...</h2>
+<h2>Here's What's on Your Radar...</h2>
 
 <div>
   <% if @accepted_jobs.any? %><h3>Accepted</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Accepted" %>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
       <% end %>
     <%end %>
     <br>
@@ -17,7 +17,7 @@
   <% if @offered_jobs.any? %><h3>Offer</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Offer" %>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
       <% end %>
     <%end %>
     <br>
@@ -28,7 +28,7 @@
   <% if @checking_references_jobs.any? %><h3>Checking References</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Checking References" %>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>  <br>
+        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %>  <br>
       <% end %>
     <%end %>
     <br>
@@ -39,7 +39,7 @@
   <% if @onsite_interview_jobs.any? %><h3>Onsite Interview</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Onsite Interview" %>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
       <% end %>
     <%end %>
     <br>
@@ -50,7 +50,7 @@
   <% if @phone_screen_jobs.any? %><h3>Technical Phone Screen</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Technical Phone Screen" %>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
       <% end %>
     <%end %>
     <br>
@@ -61,7 +61,7 @@
   <% if @info_interview_jobs.any? %><h3>Informational Interview</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Informational Interview" %>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>
+        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %>
       <% end %> 
     <%end %>
     <br>
@@ -72,7 +72,7 @@
   <% if @applied_jobs.any? %><h3>Applied</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Applied" %>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
       <% end %>
     <%end %>
     <br>
@@ -83,12 +83,14 @@
   <% if @wishlist_jobs.any? %><h3>Wishlist</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Wishlist" %>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
       <% end %>
     <% end %>
     <br>
   <% end %>
 </div>
+
+<%= button_to "Add New Job", new_job_path(@job), locals: { resource: current_user}, :method => :get %>
 
 
 

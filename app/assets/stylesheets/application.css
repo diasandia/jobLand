@@ -16,9 +16,6 @@
  */
 
 
-/* Embed Font */
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
-
 /* Use the following CSS rules to specify these families */
 body {
   font-family: 'Roboto Slab', serif;
@@ -34,6 +31,9 @@ body {
   margin-top: 5px;
 }
 
+/* Embed Font */
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
+
 
 /* Mobile First Media Queries */
 
@@ -48,6 +48,10 @@ body {
 
 /* Larger than desktop screen */
 @media (min-width: 120.0rem) { ... }
+
+
+/* Embed Font */ 
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
 
 
 /* Extending The Inheritances */

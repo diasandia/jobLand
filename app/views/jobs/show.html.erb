@@ -1,4 +1,4 @@
-<h1> Get geared up to work at <%= @job.company %>, <%= @user.first_name %>!</h1>
+<h1> Get Geared Up to Work at <%= @job.company.capitalize %>, <%= current_user.first_name.capitalize %>!</h1>
 <br>
 
 <%= render partial: "edit_current_phase.html.erb", locals: {resource: @job} %>
@@ -11,16 +11,19 @@
 
 <div class="job-info">
   <div class="job-section-header">
-    <h3> <%= @job.job_title %></h3>
+    <h3> <%= @job.company.capitalize %></h3>
   </div>
 
   <p><%= link_to @job.url, @job.url %></p>
-  <h4> <%= @job.company %></h4>
+  <h4><%= @job.job_title %>
   <h5><%= @job.description %></h5>
 </div>
 <br>
 
-<h3> Scorecard: </h3>
+<h3> Job Ranking: </h3>
+
+<br>
+
 <%= render partial: "edit.html.erb", locals: {resource: @job} %>
 
 <%= render partial: "notes/show.html.erb", locals: {resource: @job} %>

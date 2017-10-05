@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   root to: "jobs#index"
 
   resources :users, only: [:new, :create, :show] do
-    resources :events, only: [:index, :new, :create, :show]
     resources :rubrics, only: [:new, :create, :show, :edit, :update]
-    resources :notes, only: [:new, :create, :show]
+    resources :events, only: [:index, :new, :create, :show]
+    resources :notes, only: [:index, :new, :create, :show]
   end
 
   resources :networking_events
 
-  resources :jobs, only: [:new, :create, :show, :edit, :update] do
+  resources :jobs, only: [:index, :new, :create, :show, :edit, :update] do
 
     resources :notes, only: [:new, :create, :update, :destroy]
     resources :events, only: [:new, :create, :show]

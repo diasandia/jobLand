@@ -51,7 +51,7 @@ Job.create!(
 Job.create!(
   company: "Reddit",
   job_title: "Software Engineer - Entry Level",
-  url: "https://www.linkedin.com/jobs/view/414168848/",
+  url: "https://www.linkedin.com/jobs/view/414168849/",
   description: "Entry level software engineering role based in San Francisco",
   user: User.first,
   criteria_one_score: 5,
