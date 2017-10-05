@@ -2,6 +2,8 @@
 
 <h2>Here's What's on Your Radar...</h2>
 
+<br>
+
 <div>
   <% if @accepted_jobs.any? %><h3>Accepted</h3>
     <% @jobs.each do |job| %>
@@ -90,6 +92,9 @@
     <% end %>
   <% end %>
 </div>
+
+<br>
+
 <div id = "add-new-job">
 <%= button_to "Add New Job", new_job_path, locals: { resource: current_user}, :method => :get, remote: true %>
 </div>
