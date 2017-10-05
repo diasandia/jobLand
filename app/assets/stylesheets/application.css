@@ -51,7 +51,7 @@ body {
 @media (min-width: 120.0rem) { ... }
 
 
-/* Embed Font */ 
+/* Embed Font */
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
 
 
@@ -125,7 +125,16 @@ li a:hover {
 }
 
 
+#profile-pic {
+  top: 0px;
+  right: opx;
+  position: relative;
+  float: right;
+}
 
+#wish-list {
+  padding-bottom: 1em;
+}
 
 
 

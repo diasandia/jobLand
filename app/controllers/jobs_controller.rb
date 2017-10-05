@@ -18,6 +18,7 @@ class JobsController < ApplicationController
       @info_interview_jobs = @jobs.where(current_phase: "Informational Interview")
       @applied_jobs = @jobs.where(current_phase: "Applied")
       @wishlist_jobs = @jobs.where(current_phase: "Wishlist")
+
         if !current_user.rubrics.last
           redirect_to current_user
         end
@@ -35,21 +36,21 @@ class JobsController < ApplicationController
     if params[:job] #is this the form or the extension?
       @user = current_user
       @job = Job.new(
-              url: params[:job][:url], 
+              url: params[:job][:url],
               company: params[:job][:company],
-              job_title: params[:job][:job_title], 
-              description: params[:job][:description], 
-              user: @user, 
+              job_title: params[:job][:job_title],
+              description: params[:job][:description],
+              user: @user,
               current_phase: "Wishlist"
               )
     else
       @user = User.find_by(email: params[:email])
       @job = Job.new(
-              url: params[:url], 
+              url: params[:url],
               company: params[:company],
-              job_title: params[:job_title], 
-              description: params[:description], 
-              user: @user, 
+              job_title: params[:job_title],
+              description: params[:description],
+              user: @user,
               current_phase: "Wishlist"
               )
     end
@@ -57,8 +58,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to jobs_path }
-      format.js { render json: @job }
-      # format.js { redirect_to root_path }
+      format.js
     end
   end
 

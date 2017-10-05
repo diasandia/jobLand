@@ -6,7 +6,7 @@
   <% if @accepted_jobs.any? %><h3>Accepted</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Accepted" %>
-        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
+         <%= render partial: "wish_list.html.erb", locals: {job: job} %>
       <% end %>
     <%end %>
     <br>
@@ -17,7 +17,7 @@
   <% if @offered_jobs.any? %><h3>Offer</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Offer" %>
-        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
+         <%= render partial: "wish_list.html.erb", locals: {job: job} %>
       <% end %>
     <%end %>
     <br>
@@ -28,7 +28,7 @@
   <% if @checking_references_jobs.any? %><h3>Checking References</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Checking References" %>
-        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %>  <br>
+         <%= render partial: "wish_list.html.erb", locals: {job: job} %>
       <% end %>
     <%end %>
     <br>
@@ -39,7 +39,7 @@
   <% if @onsite_interview_jobs.any? %><h3>Onsite Interview</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Onsite Interview" %>
-        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
+         <%= render partial: "wish_list.html.erb", locals: {job: job} %>
       <% end %>
     <%end %>
     <br>
@@ -50,7 +50,7 @@
   <% if @phone_screen_jobs.any? %><h3>Technical Phone Screen</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Technical Phone Screen" %>
-        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
+         <%= render partial: "wish_list.html.erb", locals: {job: job} %>
       <% end %>
     <%end %>
     <br>
@@ -61,8 +61,8 @@
   <% if @info_interview_jobs.any? %><h3>Informational Interview</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Informational Interview" %>
-        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %>
-      <% end %> 
+         <%= render partial: "wish_list.html.erb", locals: {job: job} %>
+      <% end %>
     <%end %>
     <br>
   <% end %>
@@ -72,25 +72,27 @@
   <% if @applied_jobs.any? %><h3>Applied</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Applied" %>
-        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
+        <%= render partial: "wish_list.html.erb", locals: {job: job} %>
       <% end %>
     <%end %>
     <br>
   <% end %>
 </div>
 
-<div>
-  <% if @wishlist_jobs.any? %><h3>Wishlist</h3>
+<div id="wish-list">
+  <% if @wishlist_jobs.any? %>
+  <h3>Wishlist</h3>
     <% @jobs.each do |job| %>
       <% if job.current_phase == "Wishlist" %>
-        <%= link_to job.job_title, job_path(job.id) %> at <%= job.company %> <br>
+        <%= render partial: "wish_list.html.erb", locals: {job: job} %>
+
       <% end %>
     <% end %>
-    <br>
   <% end %>
 </div>
-
-<%= button_to "Add New Job", new_job_path(@job), locals: { resource: current_user}, :method => :get %>
+<div id = "add-new-job">
+<%= button_to "Add New Job", new_job_path, locals: { resource: current_user}, :method => :get, remote: true %>
+</div>
 
 
 
