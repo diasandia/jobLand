@@ -15,8 +15,8 @@
       </div>
     <% end %>
 
-  <%= select_tag "current_phase", options_for_select(["Wishlist","Applied","Informational Interview","Phone Screen","Technical Phone Screen","Onsite Interview","Checking references","Offer","Accepted"], :selected => @job.current_phase) %>
-    <%= submit_tag "update phase", name: nil, class: 'btn' %>
+<%= select_tag "current_phase", options_for_select(["Wishlist","Applied","Informational Interview","Phone Screen","Technical Phone Screen","Onsite Interview","Checking references","Offer","Accepted"], :selected => @job.current_phase) %>
+  <%= submit_tag "Job Phase", name: nil, class: 'btn' %>
 
   <% end %>
 </div>

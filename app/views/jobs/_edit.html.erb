@@ -1,20 +1,20 @@
 <div class ="love-icon" style="display: flex">
   <ul>
-    <h4> Experienced Manager </h4>
+    <h4> <%= current_user.rubrics.last.standard_one %> </h4>
     <p><%= render partial: 'criteria_one', locals: { job: @job } %></p>
   </ul>
 </div>
 
 <div class ="love-icon" style="display: flex">
   <ul>
-    <h4> Great pay and benefits </h4>
+    <h4> <%= current_user.rubrics.last.standard_two %>  </h4>
     <p><%= render partial: 'criteria_two', locals: { job: @job } %></p>
   </ul>
 </div>
 
 <div class ="love-icon" style="display: flex">
   <ul>
-    <h4> Mentorship </h4>
+    <h4> <%= current_user.rubrics.last.standard_three %>  </h4>
     <p><%= render partial: 'criteria_three', locals: { job: @job } %></p>
   </ul>
 </div>
