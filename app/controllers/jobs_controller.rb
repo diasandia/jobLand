@@ -2,12 +2,12 @@ class JobsController < ApplicationController
 
   protect_from_forgery :except => [:create]
 
- def new
+  def new
     @job = Job.new
   end
 
   def index
-    #change this to current user
+
     if current_user
       @jobs = current_user.jobs.all
       @accepted_jobs = @jobs.where(current_phase: "Accepted")
@@ -18,29 +18,53 @@ class JobsController < ApplicationController
       @info_interview_jobs = @jobs.where(current_phase: "Informational Interview")
       @applied_jobs = @jobs.where(current_phase: "Applied")
       @wishlist_jobs = @jobs.where(current_phase: "Wishlist")
+        if !current_user.rubrics.last
+          redirect_to current_user
+        end
     else
       redirect_to new_user_session_path
     end
   end
 
   def show
-    p "*" * 100
-    @user = current_user
     @job = current_user.jobs.find(params[:id])
-
-    p @job
     @note = Note.new
   end
 
   def create
-    @user = User.find_by(email: params[:email])
-    @job = Job.create(url: params[:url], company: params[:company], job_title: params[:job_title], description: params[:description], user: @user, current_phase: "Wishlist")
-      render json: {status: 200}
-  end
+    if params[:job] #is this the form or the extension?
+      @user = current_user
+      @job = Job.new(
+              url: params[:job][:url], 
+              company: params[:job][:company],
+              job_title: params[:job][:job_title], 
+              description: params[:job][:description], 
+              user: @user, 
+              current_phase: "Wishlist"
+              )
+    else
+      @user = User.find_by(email: params[:email])
+      @job = Job.new(
+              url: params[:url], 
+              company: params[:company],
+              job_title: params[:job_title], 
+              description: params[:description], 
+              user: @user, 
+              current_phase: "Wishlist"
+              )
+    end
+    @job.save
 
+    respond_to do |format|
+      format.html { redirect_to jobs_path }
+      format.js { render json: @job }
+      # format.js { redirect_to root_path }
+    end
+  end
 
   def update
     @job = Job.find(params[:id])
+
     if params[:current_phase]
       if @job.update(current_phase: params[:current_phase])
         redirect_to @job
@@ -49,12 +73,12 @@ class JobsController < ApplicationController
      end
     else
       if @job.update(job_params)
-          respond_to do |format|
-            format.html { redirect_to job_path}
-            format.js
-          end
+        respond_to do |format|
+          format.html { redirect_to job_path}
+          format.js
+        end
       else
-          render :edit
+        render :edit
       end
     end
   end
@@ -65,6 +89,7 @@ class JobsController < ApplicationController
   end
 
   private
+
   def job_params
     params.require(:job).permit(:criteria_one_score, :criteria_two_score, :criteria_three_score)
   end

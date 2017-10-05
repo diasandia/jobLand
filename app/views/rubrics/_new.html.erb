@@ -1,8 +1,12 @@
-<p>Write three criteria that matter to you in your job search</p>
+<h2> Write Three Things You're Looking For in a Job </h2>
 
+<br>
+
+<div>
   <%= form_for [current_user, @new_rubric] do |f| %>
-    <%= f.text_area :standard_one %>
-    <%= f.text_area :standard_two %>
-    <%= f.text_area :standard_three %>
+    <%= f.text_area :standard_one, placeholder: "Great Company Culture" %>
+    <%= f.text_area :standard_two, placeholder: "Salary & Benefits" %>
+    <%= f.text_area :standard_three, placeholder: "Close to Home" %>
     <%= f.submit "Submit" %>
   <% end %>
+</div>

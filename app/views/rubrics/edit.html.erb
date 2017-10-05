@@ -4,9 +4,9 @@
 
 <div>
   <%= form_for [current_user, @rubric] do |f| %>
-    <%= f.text_area :standard_one %>
-    <%= f.text_area :standard_two %>
-    <%= f.text_area :standard_three %>
-    <%= f.submit "UPDATE" %>
+    <%= f.text_area :standard_one, placeholder: "Great Company Culture" %>
+    <%= f.text_area :standard_two, placeholder: "Salary & Benefits" %>
+    <%= f.text_area :standard_three, placeholder: "Close to Home" %>
+    <%= f.submit "Update" %>
   <% end %>
 </div>

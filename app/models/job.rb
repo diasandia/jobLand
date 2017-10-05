@@ -2,7 +2,8 @@ class Job < ApplicationRecord
   belongs_to :user
   has_many :events, as: :attendable
   has_many :notes, as: :notable
-
+  
+  # before_save :shorten_url
 
   def next_steps
     case
@@ -54,4 +55,7 @@ class Job < ApplicationRecord
     self.all.reduce(0) { |sum, job| sum + job.points}
   end
 
+  # def shorten_url
+  #   self.url = SecureRandom.hex(3)
+  # end
 end

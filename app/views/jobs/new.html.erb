@@ -1,0 +1,14 @@
+<h2> Add a New Job </h2>
+
+<br>
+
+<div>
+  <%= form_for @job do |f| %>
+  <input type="hidden" name="job[user_id]" value="<%= current_user.id %>" />
+    <%= f.text_area :url, placeholder: "Paste Link Here" %>
+    <%= f.text_area :company, placeholder: "Company Name" %>
+    <%= f.text_area :job_title, placeholder: "Job Title" %>
+    <%= f.text_area :description, placeholder: "Job Description" %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</div>

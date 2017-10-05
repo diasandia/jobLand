@@ -1,15 +1,18 @@
 class RubricsController < ApplicationController
 
-
   def new
     @rubric = current_user.rubrics.new
   end
 
   def create
     @rubric = current_user.rubrics.new(rubric_params)
-    @rubric.save
-
-    redirect_to current_user
+    
+    if @rubric.save
+      redirect_to current_user
+    else
+      @errors = @rubric.errors.full_messages
+      render :new
+    end
   end
 
   def show
@@ -36,6 +39,5 @@ class RubricsController < ApplicationController
   def rubric_params
     params.require(:rubric).permit(:standard_one,:standard_two, :standard_three)
   end
-
 end
 
