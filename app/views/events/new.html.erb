@@ -1,4 +1,4 @@
-<h1>Here is my new event thingie</h1>
+<h1>Create a new job event</h1>
 
 <div id="add-event-form">
 
@@ -9,7 +9,7 @@
     Event name: <%= f.text_field :title %>
     Location or Phone: <%= f.text_field :location %>
     Event details: <%= f.text_field :description%>
-    Event time and date: <%= f.text_field :datetime%>
+    Event time and date: <%= f.datetime_local_field :datetime%>
 
     <%= f.submit "Add a new event" %>
   <% end %>
