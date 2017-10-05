@@ -22,6 +22,7 @@
 /* Use the following CSS rules to specify these families */
 body {
   font-family: 'Roboto Slab', serif;
+  max-width: 100%;
   margin: 15px;
   padding-top: 1em;
   padding-left: 2em;
@@ -112,6 +113,11 @@ li a:hover {
        color: #A926CF;
          -webkit-transform: rotate(360deg);
           transform: rotate(360deg);
+}
+
+#jobs-index-page {
+  margin: 25px;
+
 }
 
 
