@@ -11,7 +11,10 @@ class NotesController < ApplicationController
     @note = @job.notes.new(description: params[:note][:description])
 
     if @note.save
-      redirect_to @job
+      respond_to do |format|
+        format.html { redirect_to @job }
+        format.js
+      end
     else
       @errors = @note.errors.full_messages
       redirect_to @job

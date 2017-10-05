@@ -1,13 +1,11 @@
 <% if @job.notes %>
 <fieldset>
-<legend>NOTES</legend>
+<legend><%= link_to "NOTES", "#add-notes-form", id: "note-link" %></legend>
   <div class="show-user-note">
     <% @job.notes.each do |note| %>
-    <%= note.description %>
-      <p>Added on: <%= note.created_at.strftime("%B, %-d, %Y") %></p>
+      <%= render partial: 'notes/show_note.html.erb', locals: {note: note } %>
     <% end  %>
   </div>
 </fieldset>
-
 
 <% end %>
