@@ -13,34 +13,72 @@
 
 <h2>Here's what's on your radar...</h2>
 
-<% @jobs.each do |job| %>
-  <% case %>
-    <% when job.current_phase == "Accepted" %>
-      <h1>Accepted</h1>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>
-    <% when job.current_phase == "Offer" %>
-      <h1>Offer</h1>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>
-    <% when job.current_phase == "Checking references" %>
-      <h1>Checking References</h1>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>
-    <% when job.current_phase == "Onsite Interview" %>
-      <h1>Onsite Interview</h1>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>
-    <% when job.current_phase == "Technical Phone Screen" %>
-      <h1>Technical Phone Screen</h1>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>
-    <% when job.current_phase == "Informational Interview" %>
-      <h1>Informational Interview</h1>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>
-    <% when job.current_phase == "Applied" %>
-      <h1>Applied</h1>
-        <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>
-    <% when job.current_phase == "Wishlist" %>
-       <h1>Wishlist</h1>
-      <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>
+  <% if @accepted_jobs.any? %><h1>Accepted</h1>
+  <% @jobs.each do |job| %>
+    <% if job.current_phase == "Accepted" %>
+          <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <% end %>
+    <%end %>
+    <% end %>
 
-    <% end  %>
+  <% if @offered_jobs.any? %><h1>Offer</h1>
+  <% @jobs.each do |job| %>
+    <% if job.current_phase == "Offer" %>
+          <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <% end %>
+    <%end %>
+    <% end %>
+
+  <% if @checking_references_jobs.any? %><h1>Checking References</h1>
+  <% @jobs.each do |job| %>
+    <% if job.current_phase == "Checking References" %>
+          <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>  <br>
+        <% end %>
+    <%end %>
+    <% end %>
+
+  <% if @onsite_interview_jobs.any? %><h1>Onsite Interview</h1>
+  <% @jobs.each do |job| %>
+    <% if job.current_phase == "Onsite Interview" %>
+          <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <% end %>
+    <%end %>
+    <% end %>
+
+  <% if @phone_screen_jobs.any? %><h1>Technical Phone Screen</h1>
+  <% @jobs.each do |job| %>
+    <% if job.current_phase == "Technical Phone Screen" %>
+          <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <% end %>
+    <%end %>
+    <% end %>
+
+
+  <% if @info_interview_jobs.any? %><h1>Informational Interview</h1>
+  <% @jobs.each do |job| %>
+    <% if job.current_phase == "Informational Interview" %>
+          <%= link_to job.job_title, job_path(job.id) %> <%= job.company %>
+        <% end %> <br>
+    <%end %>
+  <% end %>
+
+ <% if @applied_jobs.any? %><h1>Applied</h1>
+  <% @jobs.each do |job| %>
+    <% if job.current_phase == "Applied" %>
+          <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <% end %>
+    <%end %>
 <% end %>
+
+ <% if @wishlist_jobs.any? %><h1>Wishlist</h1><% end %>
+  <% @jobs.each do |job| %>
+    <% if job.current_phase == "Wishlist" %>
+          <%= link_to job.job_title, job_path(job.id) %> <%= job.company %> <br>
+        <% end %>
+    <%end %>
+
+
+
+
 
 

@@ -10,6 +10,14 @@ class JobsController < ApplicationController
     #change this to current user
     if current_user
       @jobs = current_user.jobs.all
+      @accepted_jobs = @jobs.where(current_phase: "Accepted")
+      @offered_jobs = @jobs.where(current_phase: "Offer")
+      @checking_references_jobs = @jobs.where(current_phase: "Checking References")
+      @onsite_interview_jobs = @jobs.where(current_phase: "Onsite Interview")
+      @phone_screen_jobs = @jobs.where(current_phase: "Technical Phone Screen")
+      @info_interview_jobs = @jobs.where(current_phase: "Informational Interview")
+      @applied_jobs = @jobs.where(current_phase: "Applied")
+      @wishlist_jobs = @jobs.where(current_phase: "Wishlist")
     else
       redirect_to new_user_session_path
     end
