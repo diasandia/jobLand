@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :networking_events
 
   resources :jobs, only: [:index, :new, :create, :show, :edit, :update] do
-
     resources :notes, only: [:new, :create, :update, :destroy]
     resources :events, only: [:new, :create, :show]
   end

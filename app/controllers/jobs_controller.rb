@@ -29,27 +29,30 @@ class JobsController < ApplicationController
   def show
     @job = current_user.jobs.find(params[:id])
     @note = Note.new
+    @event = Event.new
   end
 
   def create
+    p "ARE WE PUTTING STUFF IN HERE?!?!?!?!?!?!?!?!?!?!?!?!?!"
     if params[:job] #is this the form or the extension?
       @user = current_user
       @job = Job.new(
-              url: params[:job][:url], 
+              url: params[:job][:url],
               company: params[:job][:company],
-              job_title: params[:job][:job_title], 
-              description: params[:job][:description], 
-              user: @user, 
+              job_title: params[:job][:job_title],
+              description: params[:job][:description],
+              user: @user,
               current_phase: "Wishlist"
               )
     else
+      p errors.full_messages
       @user = User.find_by(email: params[:email])
       @job = Job.new(
-              url: params[:url], 
+              url: params[:url],
               company: params[:company],
-              job_title: params[:job_title], 
-              description: params[:description], 
-              user: @user, 
+              job_title: params[:job_title],
+              description: params[:description],
+              user: @user,
               current_phase: "Wishlist"
               )
     end

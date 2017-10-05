@@ -9,6 +9,7 @@
 
 User.delete_all
 Job.delete_all
+Event.delete_all
 
 
 User.create!(
@@ -91,5 +92,14 @@ UserPoint.create!(
 UserPoint.create!(
   user: User.first,
   point_category: PointCategory.second
+  )
+
+Event.create!(
+  attendable_type: "Job",
+  attendable_id: Job.first.id,
+  datetime: nil,
+  title: "Phone screen with the recruiter",
+  description: "Talking to Michelle",
+  location: "She will call me",
   )
 
