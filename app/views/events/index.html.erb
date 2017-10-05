@@ -1,1 +1,12 @@
-<h1>Coming Soon...</h1>
+<h1>Here are your upcoming job events...</h1>
+
+<div class="events=list">
+  <% @events.each do |e| %>
+  <ul>
+    <strong><%= e.title %></strong>
+    <li><strong>Location:</strong> <%= e.location %></li>
+    <li><strong>Event time:</strong> <%= e.datetime%></li>
+    <li><strong>Event details:</strong> <%= e.description %></li>
+  </ul>
+  <% end %>
+</div>

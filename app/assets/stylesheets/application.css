@@ -153,6 +153,8 @@ li a:hover {
 .job-phase-form {
   width: 20%;
 }
+.events-list {
+  border-color: #9b4dca;
 
 #profile-pic {
   top: 0px;
