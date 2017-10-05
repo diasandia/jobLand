@@ -18,6 +18,7 @@ class JobsController < ApplicationController
       @info_interview_jobs = @jobs.where(current_phase: "Informational Interview")
       @applied_jobs = @jobs.where(current_phase: "Applied")
       @wishlist_jobs = @jobs.where(current_phase: "Wishlist")
+
         if !current_user.rubrics.last
           redirect_to current_user
         end
@@ -60,8 +61,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to jobs_path }
-      format.js { render json: @job }
-      # format.js { redirect_to root_path }
+      format.js
     end
   end
 

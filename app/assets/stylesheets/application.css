@@ -154,7 +154,16 @@ li a:hover {
   width: 20%;
 }
 
+#profile-pic {
+  top: 0px;
+  right: opx;
+  position: relative;
+  float: right;
+}
 
+#wish-list {
+  padding-bottom: 1em;
+}
 
 
 

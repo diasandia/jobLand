@@ -2,8 +2,8 @@
 
 <br>
 
-<div>
-  <%= form_for @job do |f| %>
+<div id = "new-job-create">
+  <%= form_for @job, remote: true do |f| %>
   <input type="hidden" name="job[user_id]" value="<%= current_user.id %>" />
     <%= f.text_area :url, placeholder: "Paste Link Here" %>
     <%= f.text_area :company, placeholder: "Company Name" %>
