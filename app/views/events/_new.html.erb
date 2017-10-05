@@ -1,0 +1,12 @@
+<div id="new-event">
+
+
+  <%= form_for [resource, @event], remote: true do |f| %>
+    <%= f.text_area :title, placeholder: "What is this event called?", size: "60x12" %>
+    <%= f.text_area :description, placeholder: "Event details..." %>
+    <%= f.text_area :location, placeholder: "Where will the event be?" %>
+    <%= f.text_area :datetime, placeholder: "When...?" %>
+    <%= f.submit "Add new event" %>
+  <% end %>
+
+</div>

@@ -51,7 +51,7 @@ body {
 @media (min-width: 120.0rem) { ... }
 
 
-/* Embed Font */ 
+/* Embed Font */
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
 
 
@@ -124,6 +124,9 @@ li a:hover {
 
 }
 
+.job-phase-form {
+  width: 20%;
+}
 
 
 
