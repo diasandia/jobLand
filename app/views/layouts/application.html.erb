@@ -15,6 +15,7 @@
     <!-- Milligram CSS minified -->
     <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
 
+    <link rel="icon" type="image/png" href="/images/JL_logo.png">
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -23,22 +24,26 @@
   <body>
 
         <% if user_signed_in? %>
-          <nav class= "login">
-            <div id = profile-pic>
-             <li id = "welcome"> <p> Welcome <%= current_user.first_name %> </li>
-             <img src="<%= current_user.profile_picture %>"/>
-          </div>
-             <li> <%= link_to "Profile", user_path(current_user.id) %> </li>
-             <li> <%= link_to "Calendar", user_events_path(current_user.id) %> </li>
-             <li> <%= link_to "My Jobs", root_path(current_user.id) %> </li>
-             <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
+          <nav class= "navbar">
+            <li id='logo-li'><img id="logo" src="/images/JL_logo.png" width="40" height="40"></li>
+        <!-- <ul id="navbar"> --> 
+                <li> <%= link_to "Profile", user_path(current_user.id) %> </li>
+                <li> <%= link_to "My Jobs", root_path(current_user.id) %> </li>
+                <li> <%= link_to "Calendar", user_events_path(current_user.id) %></li>
+                <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+              <div id = profile-pic>
+                 <li id = "welcome"> <p> Welcome <%= current_user.first_name %> </li>
+                 <img src="<%= current_user.profile_picture %>"/>
+              </div>
+        <!-- </ul> -->
           </nav>
         <% else %>
-          <nav class="login">
-            <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+          <img id="logo" src="/images/JL_logo.png" width="40" height="40">
+          <nav id="homepage-button">
+            <%= link_to "Login with Google", user_google_oauth2_omniauth_authorize_path %>
           </nav>
         <% end %>
-
+      <br>
     <%= render partial: "layouts/errors", layout: false %>
     <%= yield %>
 
