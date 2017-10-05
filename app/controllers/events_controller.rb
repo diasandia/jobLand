@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    @job = Job.find(params[:job_id])
     @event = Event.new
   end
 
@@ -16,10 +17,19 @@ class EventsController < ApplicationController
     end
 
     @event = @job.events.new
+    if @event.save
+      respond_to do |format|
+        format.html { redirect_to @job }
+      end
+    else
+      @errors = @event.errors.full_messages
+      redirect_to @job
+    end
   end
 
   private
 
   def event_params
     params.require(:event).permit(:title, :description, :location, :datetime)
+  end
 end

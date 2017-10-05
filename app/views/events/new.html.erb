@@ -1,0 +1,15 @@
+<h1>Here is my new event thingie</h1>
+
+<div id="add-event-form">
+
+  <%= form_for [@job, @event], remote: true do |f| %>
+    <%= f.hidden_field :attendable_type, value: "Job" %>
+    <%= f.hidden_field :attendable_id, value: @job.id %>
+    Event name: <%= f.text_field :title %>
+    Location or Phone: <%= f.text_field :location%>
+    Event details: <%= f.text_field :description%>
+    Date and Time: <%= f.text_field :datetime %>
+    <%= f.submit "Add a new event" %>
+  <% end %>
+
+</div>
