@@ -41,6 +41,7 @@ devise :database_authenticatable, :registerable,
       if !found_user
         self.find_or_create_by(provider: omniauth_data.provider, uid: omniauth_data.uid) do |user|
           p "Inside this other bullshit"
+          user.google_access_token = omniauth_data.credentials.token
           user.uid = omniauth_data.uid
           user.provider = omniauth_data.provider
           user.email = omniauth_data.info.email

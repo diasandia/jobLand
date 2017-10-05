@@ -5,9 +5,7 @@ class Event < ApplicationRecord
 
  def self.get_cal_events(passing_authorization)
     @@passing_authorization = passing_authorization
-    result = api_client.execute(
-      :api_method => @the_calendar.list_events('primary'),
-      :authorization => user_credentials)
+    result = api_client.execute(:api_method => @the_calendar.list_events('primary'), :authorization => passing_authorization)
     p "*" * 100
     # self.calendar
     p result.data
@@ -21,14 +19,10 @@ class Event < ApplicationRecord
     @client ||= begin
       # client = Google::Apis::CalendarV3::CalendarService.new(application_name: 'JobLand', application_version: '0.0.1')
       service = Google::Apis::CalendarV3::CalendarService.new
-      p "$" * 100
-
 
     client = Signet::OAuth2::Client.new(client_options)
-    client.update!(@@passing_authorization)
-      p client
-      p client.methods.sort
-      p "$" * 100
+    client.update!({authorization: @@passing_authorization})
+
       service.authorization = client
       service.authorization.client_id = ENV["GOOGLE_CLIENT_ID"]
       service.authorization.client_secret = ENV["GOOGLE_CLIENT_SECRET"]
@@ -36,7 +30,7 @@ class Event < ApplicationRecord
       p "%" * 1000
       @the_calendar = service
       client
-      binding.pry
+      # binding.pry
 
     end
   end

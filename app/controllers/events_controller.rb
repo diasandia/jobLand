@@ -41,9 +41,8 @@ class EventsController < ApplicationController
 
 
   def calendars
-    p "$" * 100
-    p params
-    passing_authorization = session[:authorization]
+    @user = current_user
+    passing_authorization = @user.google_access_token
     @results = Event.get_cal_events(passing_authorization)
   end
 
