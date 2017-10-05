@@ -1,11 +1,31 @@
 class EventsController < ApplicationController
 
-  # def index
 
+
+  # def redirect
+  #   client = Signet::OAuth2::Client.new(client_options)
+  #   p "@" * 200
+    # client.update!(session[:authorization])
+
+    # service = Google::Apis::CalendarV3::CalendarService.new
+    # service.authorization = client
+
+    # @calendar_list = service.list_calendar_lists
+  #   redirect_to client.authorization_uri.to_s
   # end
 
-  # def show
+  # def callback
+  #   client = Signet::OAuth2::Client.new(client_options)
+  #   p "%" * 100
+  #   client.code = params[:code]
+
+  #   response = client.fetch_access_token!
+
+  #   session[:authorization] = response
+
+  #   redirect_to calendars_url
   # end
+
 
   # def calendars
   #   client = Signet::OAuth2::Client.new(client_options)
@@ -23,11 +43,11 @@ class EventsController < ApplicationController
   #   {
   #     client_id: ENV['GOOGLE_CLIENT_ID'],
   #     client_secret: ENV['GOOGLE_CLIENT_SECRET'],
-  #     authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
+  #     authorization_uri: user_google_oauth2_omniauth_authorize_path,
   #     token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
-  #     scope: 'https//www.googleapis.com/auth/calendar',
+  #     scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
   #     # scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
-  #     redirect_uri: 'https://localhost:3000'
+  #     redirect_uri: callback_url
   #   }
   # end
 
@@ -38,13 +58,15 @@ class EventsController < ApplicationController
 
 #why is calendars not showing the events that we're calling inside t- events aren't showing up in it, but they should
 
+# THIS ONE HITS THE EVENT MODEL
 
-
-  def calendars
-    @user = current_user
-    passing_authorization = @user.google_access_token
-    @results = Event.get_cal_events(passing_authorization)
-  end
+  # def calendars
+  #   user = current_user
+  #   # refreshment = user.refreshment
+  #   longstring = user.id_token
+  #   passing_authorization = user.google_access_token
+  #   @results = Event.get_cal_events(passing_authorization, refresh_token, id_token)
+  # end
 
 
 

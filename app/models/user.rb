@@ -32,7 +32,7 @@ devise :database_authenticatable, :registerable,
     end
   end
 
-      p
+
     def self.from_omniauth(omniauth_data)
       p "Inside this bullshit"
       p omniauth_data
@@ -41,8 +41,10 @@ devise :database_authenticatable, :registerable,
       if !found_user
         self.find_or_create_by(provider: omniauth_data.provider, uid: omniauth_data.uid) do |user|
           p "Inside this other bullshit"
+
           user.google_access_token = omniauth_data.credentials.token
           user.uid = omniauth_data.uid
+          # user.refresh_token = omniauth_data.credentials.refresh_token
           user.provider = omniauth_data.provider
           user.email = omniauth_data.info.email
           user.password = Devise.friendly_token[0,20]
