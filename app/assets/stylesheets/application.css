@@ -32,6 +32,7 @@ body {
   margin-top: 5px;
 }
 
+
 /* Embed Font */
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
 
@@ -55,11 +56,18 @@ body {
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
 
 
+
 /* Extending The Inheritances */
 
 #logo {
   src: url("/assets/JL_logo.png");
+/*  position: relative;*/
+  vertical-align: middle;
+/*  margin: 10px 15px 15px 10px;*/
+  width: 2%;
+  height: 2%;
 }
+
 
 /* Custom color */
 .button-black {
@@ -92,7 +100,6 @@ body {
   padding: 0 2rem;
 }
 
-
 .close-button.button.border-box {
   font-size: 50px;
   margin-left: -30px;
@@ -102,13 +109,23 @@ body {
 .navbar {
     margin: 0;
     padding: 0;
+    height: 60px;
     overflow: hidden;
     background-color: #d3d3d3;
+    display: flex;
+    align-items: center;
 }
 
 .navbar li {
   display: block;
   float: left;
+  vertical-align: middle;
+  margin-bottom: 0px;
+}
+
+#logo-li {
+  margin-left: 10px;
+  height: 40px;
 }
 
 .navbar a {
