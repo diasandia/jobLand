@@ -10,7 +10,7 @@ devise :database_authenticatable, :registerable,
 
   has_many :rubrics
   has_many :jobs
-  has_many :events
+  has_many :events, through: :jobs
   has_many :user_events
   has_many :networking_events, through: :user_events
   has_many :user_points

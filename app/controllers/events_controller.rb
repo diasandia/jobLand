@@ -8,28 +8,24 @@ class EventsController < ApplicationController
   end
 
   def create
+    p "*" * 10
+    p "&"* 100
+    p event_params
     @job = Job.find(params[:job_id])
-
-    if params[:job_id]
-      @job = Job.find(params[:job_id])
-    elsif params[:job_phase_id]
-      @job_phase_id = JobPhase.find(:job_phase_id)
-    end
-
-    @event = @job.events.new
+    p params
+    @event = @job.events.new(event_params)
     if @event.save
-      respond_to do |format|
-        format.html { redirect_to @job }
-      end
-    else
-      @errors = @event.errors.full_messages
       redirect_to @job
+    else
+      p @errors
+      @errors = @event.errors.full_messages
+      render :new
     end
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :location, :datetime)
+    params.require(:event).permit(:title, :description, :location, :datetime, :attendable_id, :attendable_type)
   end
 end
