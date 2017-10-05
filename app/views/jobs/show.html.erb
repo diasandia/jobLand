@@ -1,5 +1,5 @@
-
 <h1> Get geared up to work at <%= @job.company %>, <%= @user.first_name %>!</h1>
+<br>
 
 <%= render partial: "edit_current_phase.html.erb", locals: {resource: @job} %>
 
@@ -7,15 +7,18 @@
   <h2>Here are your next steps:</h2>
   <p><%= @job.next_steps %></p>
 </div>
+<br>
 
 <div class="job-info">
   <div class="job-section-header">
-    <h2> <%= @job.job_title %></h2>
+    <h3> <%= @job.job_title %></h3>
   </div>
+
   <p><%= link_to @job.url, @job.url %></p>
-  <p> <%= @job.company %></p>
-  <p><%= @job.description %></p>
+  <h4> <%= @job.company %></h4>
+  <h5><%= @job.description %></h5>
 </div>
+<br>
 
 <h3> Scorecard: </h3>
 <%= render partial: "edit.html.erb", locals: {resource: @job} %>

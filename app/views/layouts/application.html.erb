@@ -4,7 +4,7 @@
     <title>JobApp</title>
     <%= csrf_meta_tags %>
 
-        <!-- Google Fonts -->
+    <!-- Google Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
 
     <!-- CSS Reset -->
@@ -12,7 +12,7 @@
 
     <!-- Milligram CSS minified -->
     <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
-
+    
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -33,7 +33,7 @@
         <% end %>
       </nav>
 
-
+    <%= render partial: "layouts/errors", layout: false %>
     <%= yield %>
 
     <% if Rails.env.development? %>

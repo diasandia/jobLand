@@ -1,10 +1,15 @@
 <h1>Hello! <%= @user.first_name %></h1>
-<p> Recent points:: <%= @user.point_categories.last&.number_of_points || 'none' %></p>
+<p> Recent Points:: <%= @user.jobs.last&.points || 0 %></p>
 
-<p> Recent category:: <%= @user.point_categories.last&.category || 'none' %> </p>
+<p> Recent Job:: <%= @user.jobs.last&.job_title || 'none' %> at <%= @user.jobs.last&.company %></p>
 
-<p> Total points:: <%= @user.jobs.total_job_points %></p>
+<p> Total Points:: <%= @user.jobs.total_job_points %></p>
 
-  <%= render partial: "rubrics/show.html.erb", locals: { resource: @user} %>
+<br>
 
-<%= render partial: "rubrics/new.html.erb",locals:   {resource: @user} %>
+<% if @rubric %>
+<%= render partial: "rubrics/show", locals: { resource: @user} %>
+<%= button_to "Edit Criteria", edit_user_rubric_path(@user), locals: { resource: @user}, :method => :get %>
+<% else %>
+<%= render partial: "rubrics/new", locals: {resource: @user} %>
+<% end %>

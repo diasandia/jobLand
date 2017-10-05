@@ -1,0 +1,12 @@
+<h2> Write Three Things You're Looking For in a Job </h2>
+
+<br>
+
+<div>
+  <%= form_for [current_user, @rubric] do |f| %>
+    <%= f.text_area :standard_one %>
+    <%= f.text_area :standard_two %>
+    <%= f.text_area :standard_three %>
+    <%= f.submit "UPDATE" %>
+  <% end %>
+</div>

@@ -6,10 +6,7 @@ class RubricsController < ApplicationController
   end
 
   def create
-    p "%" * 100
-    p rubric_params
     @rubric = current_user.rubrics.new(rubric_params)
-    p @rubric.errors.full_messages
     @rubric.save
 
     redirect_to current_user
@@ -17,6 +14,21 @@ class RubricsController < ApplicationController
 
   def show
     @rubric = current_user.rubrics.last
+  end
+
+  def edit
+    @rubric = current_user.rubrics.last
+  end
+
+  def update
+    @rubric = current_user.rubrics.last
+
+    if @rubric.update(rubric_params)
+      redirect_to current_user
+    else
+      @errors = @rubric.errors.full_messages
+      render :edit
+    end
   end
 
   private
