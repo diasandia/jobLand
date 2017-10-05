@@ -23,19 +23,22 @@
   <body>
 
         <% if user_signed_in? %>
-          <nav class= "login">
-             <li> <p> Welcome <%= current_user.first_name %> </li>
-             <li> <%= link_to "Profile", user_path(current_user.id) %> </li>
-             <li> <%= link_to "Calendar", user_events_path(current_user.id) %> </li>
-             <li> <%= link_to "My Jobs", root_path(current_user.id) %> </li>
-             <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </li>
+          <nav class= "navbar">
+            <img id="logo" src="/images/JL_logo.png">
+        <!-- <ul id="navbar"> --> 
+          <!-- <li> Welcome, <%= current_user.first_name %> </li> -->
+                <li> <%= link_to "Profile", user_path(current_user.id) %> </li>
+                <li> <%= link_to "Calendar", user_events_path(current_user.id) %></li>
+                <li> <%= link_to "My Jobs", root_path(current_user.id) %> </li>
+                <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+        <!-- </ul> -->
           </nav>
         <% else %>
-          <nav class="login">
+          <nav class="homepage-button">
             <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
           </nav>
         <% end %>
-
+      <br>
     <%= render partial: "layouts/errors", layout: false %>
     <%= yield %>
 
