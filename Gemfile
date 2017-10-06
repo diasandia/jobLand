@@ -38,6 +38,8 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'jquery-rails'
 gem 'jquery-star-rating-rails'
 # gem 'font-awesome-sass'
+gem 'webpacker'
+gem 'milligram'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
