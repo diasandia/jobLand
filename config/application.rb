@@ -29,7 +29,7 @@ module JobApp
     config.generators.system_tests = nil
 
     # Bundle.require(*Rails.groups)
-    Dotenv::Railtie.load
+    Dotenv::Railtie.load if Rails.env.development?
 
 
     # cors
