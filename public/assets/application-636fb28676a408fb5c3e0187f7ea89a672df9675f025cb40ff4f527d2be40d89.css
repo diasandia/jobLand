@@ -1,0 +1,210 @@
+/* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */
+
+div.rating-cancel,div.star-rating{float:left;width:17px;height:15px;text-indent:-999em;cursor:pointer;display:block;background:transparent;overflow:hidden}
+div.rating-cancel,div.rating-cancel a{background:url(/assets/delete-32cd2462f0572cc6d63fba76837141950a47108f0015cee8f116f69002d1019f.gif) no-repeat 0 -16px}
+div.star-rating,div.star-rating a{background:url(/assets/star-5fd075331477f1fefe387b90b403b6384ad4540bbcb4d2b740511a7c902e4c20.gif) no-repeat 0 0px}
+div.rating-cancel a,div.star-rating a{display:block;width:16px;height:100%;background-position:0 0px;border:0}
+div.star-rating-on a{background-position:0 -16px!important}
+div.star-rating-hover a{background-position:0 -32px}
+/* Read Only CSS */
+div.star-rating-readonly a{cursor:default !important}
+/* Partial Star CSS */
+div.star-rating{background:transparent!important;overflow:hidden!important}
+/* END jQuery.Rating Plugin CSS */
+/*
+
+ */
+
+/* line 2, /Users/MarenMcMullan/devbootcamp/job-app/app/assets/stylesheets/sessions.scss */
+.main-header {
+  background-color: white;
+  padding-top: 170px;
+  height: 720px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* line 11, /Users/MarenMcMullan/devbootcamp/job-app/app/assets/stylesheets/sessions.scss */
+#home-img {
+  background-image: url("https://i.imgur.com/xpf6nky.png");
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+
+
+
+
+ */
+
+
+/* Use the following CSS rules to specify these families */
+
+body {
+  font-family: 'Roboto Slab', serif;
+  max-width: 100%;
+  margin: 15px;
+  padding-top: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.close-button.button.border-box {
+  font-size: 50px;
+  margin-left: -30px;
+  margin-top: 5px;
+}
+
+
+/* Embed Font */
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
+
+
+/* Mobile First Media Queries */
+
+/* Base style */
+{ ... }
+
+/* Larger than mobile screen */
+@media (min-width: 40.0rem) { ... }
+
+/* Larger than tablet screen */
+@media (min-width: 80.0rem) { ... }
+
+/* Larger than desktop screen */
+@media (min-width: 120.0rem) { ... }
+
+
+/* Embed Font */
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
+
+
+
+/* Extending The Inheritances */
+
+#logo {
+  src: url("/assets/JL_logo.png");
+/*  position: relative;*/
+  vertical-align: middle;
+/*  margin: 10px 15px 15px 10px;*/
+  width: 2%;
+  height: 2%;
+}
+
+
+/* Custom color */
+.button-black {
+  background-color: black;
+  border-color: black;
+}
+
+.button-black.button-clear,
+.button-black.button-outline {
+  background-color: transparent;
+  color: black;
+}
+
+.button-black.button-clear {
+  border-color: transparent;
+}
+
+/* Custom size */
+.button-small {
+  font-size: .8rem;
+  height: 2.8rem;
+  line-height: 2.8rem;
+  padding: 0 1.5rem;
+}
+
+.button-large {
+  font-size: 1.4rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  padding: 0 2rem;
+}
+
+.close-button.button.border-box {
+  font-size: 50px;
+  margin-left: -30px;
+  margin-top: 5px;
+}
+
+.navbar {
+  margin: 0;
+  padding: 0;
+  height: 60px;
+  overflow: hidden;
+  background-color: #404040;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navbar li {
+  display: block;
+  float: left;
+  vertical-align: middle;
+  margin-bottom: 0px;
+}
+
+#logo-li {
+  margin-left: 10px;
+  height: 40px;
+}
+
+.navbar a {
+  text-align: center;
+  display: block;
+  padding: 14px 16px;
+  color: #d3d3d3;
+  text-decoration: none;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+          transition:         transform 1s ease-in-out;
+}
+
+li a:hover {
+  color: #A926CF;
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+#jobs-index-page {
+  margin: 25px;
+
+}
+
+.job-phase-form {
+  width: 20%;
+}
+
+.events-list {
+  border-color: #9b4dca;
+}
+
+#profile-pic {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+#profile-picture-image{
+  border-radius: 50%;
+}
+
+#wish-list {
+  padding-bottom: 1em;
+}
+
+
+
+
