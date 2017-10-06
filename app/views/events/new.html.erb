@@ -1,8 +1,7 @@
 <h1>Create a new job event</h1>
 
 <div id="add-event-form">
-
-  <%= form_for @event, url: job_events_path do |f| %>
+    <%= form_for @event, url: job_events_path, html: {class: "btn"} do |f| %>
     <%= f.hidden_field :user_id, value: @job.user_id %>
     <%= f.hidden_field :attendable_type, value: "job" %>
     <%= f.hidden_field :attendable_id, value: @job.id %>
