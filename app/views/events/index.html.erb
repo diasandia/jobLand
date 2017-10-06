@@ -5,7 +5,7 @@
   <ul>
     <strong><%= e.title %></strong>
     <li><strong>Location:</strong> <%= e.location %></li>
-    <li><strong>Event time:</strong> <%= e.datetime%></li>
+    <li><strong>Event time:</strong> <%= e.datetime.strftime("%B, %-d at %l:%M %p ")%></li>
     <li><strong>Event details:</strong> <%= e.description %></li>
   </ul>
   <% end %>
