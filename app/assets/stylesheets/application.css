@@ -111,7 +111,7 @@ body {
   padding: 0;
   height: 60px;
   overflow: hidden;
-  background-color: #d3d3d3;
+  background-color: #404040;
   display: flex;
   align-items: center;
   position: relative;
@@ -133,7 +133,7 @@ body {
   text-align: center;
   display: block;
   padding: 14px 16px;
-  color: #9b4dca;
+  color: #d3d3d3;
   text-decoration: none;
   border-radius: 50%;
   -webkit-transition: -webkit-transform 1s ease-in-out;
@@ -141,7 +141,7 @@ body {
 }
 
 li a:hover {
-  color: #9b4dca;
+  color: #A926CF;
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
 }
@@ -154,9 +154,11 @@ li a:hover {
 .job-phase-form {
   width: 20%;
 }
+
 .events-list {
   border-color: #9b4dca;
 }
+
 #profile-pic {
   position: absolute;
   right: 10px;
